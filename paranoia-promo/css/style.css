@@ -1,0 +1,174 @@
+/* =========================================================
+   PARANOIA — BAD VIBES · 30s Stories promo (1080 × 1920)
+   Palette: strictly black & white.
+   ========================================================= */
+
+/* ---------- Fonts ---------- */
+/* Blackletter CS Modula (brand font). It is a licensed font and was not in
+   the Drive: drop the file in assets/fonts/ with one of the names below, or
+   have it installed on the machine — local() picks it up automatically.
+   Fallback: UnifrakturCook (OFL), bundled. */
+@font-face {
+  font-family: "BL Modula";
+  src: local("Blackletter CS Modula"), local("BlackletterCSModula"),
+       local("BlackletterCS-Modula"), local("Blackletter CS Modula Regular"),
+       url("../assets/fonts/BlackletterCSModula.woff2") format("woff2"),
+       url("../assets/fonts/BlackletterCSModula.otf") format("opentype"),
+       url("../assets/fonts/BlackletterCSModula.ttf") format("truetype");
+  font-display: block;
+}
+@font-face { font-family: "UnifrakturCook"; font-weight: 700; src: url("../assets/fonts/unifrakturcook-latin-700-normal.woff2") format("woff2"); font-display: block; }
+@font-face { font-family: "UnifrakturMaguntia"; src: url("../assets/fonts/unifrakturmaguntia-latin-400-normal.woff2") format("woff2"); font-display: block; }
+@font-face { font-family: "Anton"; src: url("../assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-display: block; }
+@font-face { font-family: "Special Elite"; src: url("../assets/fonts/special-elite-latin-400-normal.woff2") format("woff2"); font-display: block; }
+@font-face { font-family: "Archivo Black"; src: url("../assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-display: block; }
+@font-face { font-family: "Rubik Glitch"; src: url("../assets/fonts/rubik-glitch-latin-400-normal.woff2") format("woff2"); font-display: block; }
+
+:root {
+  --black: #000;
+  --white: #fff;
+  --paper: #f1f1f1;
+  --ink: #0a0a0a;
+  --blackletter: "BL Modula", "UnifrakturCook", "UnifrakturMaguntia", serif;
+}
+
+/* ---------- Page / stage ---------- */
+html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
+body { font-family: "Special Elite", monospace; color: #fff; }
+
+#viewport { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; }
+#stage {
+  position: relative; flex: none;
+  width: 1080px; height: 1920px;
+  overflow: hidden; background: var(--black);
+  transform-origin: center center;
+}
+.layer { position: absolute; inset: 0; }
+.scene { position: absolute; inset: 0; visibility: hidden; overflow: hidden; }
+
+/* ---------- Shirt scenes: paper-cut pieces ---------- */
+.piece { position: absolute; inset: 0; will-change: transform; }
+.piece.lifted { filter: drop-shadow(0 22px 26px rgba(0,0,0,.65)) drop-shadow(0 4px 4px rgba(0,0,0,.5)); }
+.piece .paper {
+  position: absolute; inset: 0;
+  background-color: var(--paper);
+  background-size: 1080px 1920px;
+}
+.piece .photo { position: absolute; inset: 0; overflow: hidden; }
+.piece .photo img {
+  position: absolute; left: 0; top: 0; width: 1080px; height: 1920px;
+  /* B&W treatment applied on screen — the source files stay untouched */
+  filter: grayscale(1) contrast(1.22) brightness(.96);
+  transform-origin: 50% 50%;
+  will-change: transform;
+}
+/* Soft darkening behind the fixed white logo, keeps it readable */
+.piece .shade {
+  position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 58% 17% at 50% 50%, rgba(0,0,0,.42) 0%, rgba(0,0,0,.18) 55%, rgba(0,0,0,0) 100%);
+}
+/* Xerox halftone/dirt over the photo */
+.piece .dirt {
+  position: absolute; inset: 0; pointer-events: none;
+  background-size: 1080px 1920px; mix-blend-mode: multiply; opacity: .55;
+}
+.piece .label {
+  position: absolute; left: 64px; bottom: 120px;
+  font: 400 34px/1 "Special Elite", monospace; letter-spacing: 2px;
+  color: #fff; background: #000; padding: 12px 18px 10px;
+  transform: rotate(-2deg);
+}
+.piece .label b { font-weight: 400; color: #000; background: #fff; padding: 2px 8px; margin-right: 12px; }
+.piece .tape {
+  position: absolute; width: 230px; height: 66px;
+  background: rgba(232,232,232,.78);
+  box-shadow: 0 2px 3px rgba(0,0,0,.25);
+  clip-path: polygon(0 8%, 4% 0, 9% 10%, 14% 2%, 20% 9%, 100% 0, 97% 18%, 100% 35%, 96% 52%, 100% 70%, 97% 86%, 100% 100%, 0 100%, 3% 82%, 0 64%, 4% 47%, 0 30%);
+  mix-blend-mode: normal;
+}
+
+/* ---------- Fixed logo (never animated) ---------- */
+#logo {
+  position: absolute; inset: 0; margin: auto;
+  width: 600px; height: auto;
+  visibility: hidden; pointer-events: none;
+  z-index: 50;
+}
+
+/* ---------- BAD VIBEEEES interludes ---------- */
+.bv { background: var(--white); }
+.bv-paper { position: absolute; inset: 0; background-color: var(--paper); background-size: 1080px 1920px; }
+.bv-title {
+  position: absolute; inset: 0; margin: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-family: var(--blackletter);
+}
+.bv-title .ink, .bv-title .ghost {
+  position: absolute; display: flex; flex-direction: column; align-items: center;
+  line-height: .86; text-align: center; white-space: nowrap;
+}
+.bv-title b { display: block; font-weight: 700; }
+.bv-title b:first-child { font-size: 360px; }
+.bv-title b:last-child  { font-size: 230px; }
+.bv-title .ink   { color: var(--ink); filter: url(#distress); }
+.bv-title .ghost { color: rgba(0,0,0,.18); filter: url(#distress); transform: translate(12px, 9px); }
+.bv-alt .bv-title { transform: rotate(-4deg); }
+
+.bv-marks { position: absolute; inset: 0; pointer-events: none; }
+.bv-meta {
+  position: absolute; left: 0; right: 0; text-align: center;
+  font: 400 30px/1 "Special Elite", monospace; letter-spacing: 6px; color: #111;
+  opacity: .82;
+}
+.bv-meta.top { top: 150px; }
+.bv-meta.bottom { bottom: 150px; }
+.reg { position: absolute; width: 70px; height: 70px; border: 3px solid #111; border-radius: 50%; opacity: .7; }
+.reg::before, .reg::after { content: ""; position: absolute; background: #111; }
+.reg::before { left: -22px; right: -22px; top: 50%; height: 3px; margin-top: -1.5px; }
+.reg::after  { top: -22px; bottom: -22px; left: 50%; width: 3px; margin-left: -1.5px; }
+.reg.tl { left: 60px; top: 60px; } .reg.tr { right: 60px; top: 60px; }
+.reg.bl { left: 60px; bottom: 60px; } .reg.br { right: 60px; bottom: 60px; }
+
+/* ---------- Finale ---------- */
+.finale { background: var(--black); }
+.fw {
+  position: absolute; inset: 0; visibility: hidden;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; white-space: nowrap;
+}
+/* 1 — condensed poster grotesk, stretched */
+.fw1 { font: 400 360px/0.8 "Anton", sans-serif; color: #fff; letter-spacing: -6px; }
+.fw1 span { display: block; transform: scaleY(1.32); }
+.fw1 span + span { margin-top: 120px; }
+/* 2 — typewriter, black on white */
+.fw2 { background: #fff; color: #000; flex-direction: row; font: 400 168px/1 "Special Elite", monospace; letter-spacing: -4px; }
+.fw2 .cursor { display: inline-block; width: 70px; height: 150px; background: #000; margin-left: 14px; }
+/* 3 — ransom note collage */
+.fw3 { gap: 26px; }
+.fw3 .row { display: flex; gap: 10px; align-items: center; }
+.fw3 .chr { display: inline-flex; align-items: center; justify-content: center; padding: 6px 14px; line-height: 1; }
+.fw3 .chr.w { background: #fff; color: #000; }
+.fw3 .chr.b { background: #000; color: #fff; outline: 4px solid #fff; outline-offset: -12px; }
+.fw3 .chr.g { background: #d9d9d9; color: #000; }
+/* 4 — outline echo stack */
+.fw4 { font: 400 132px/1.04 "Archivo Black", sans-serif; color: transparent; -webkit-text-stroke: 3px #fff; letter-spacing: -2px; }
+.fw4 .solid { color: #fff; -webkit-text-stroke: 0; }
+/* 5 — Blackletter CS Modula + original logo */
+.fw5 { font: 700 250px/0.9 var(--blackletter); color: #fff; }
+.fw5 span { filter: url(#distress-soft); }
+.final-logo { position: absolute; inset: 0; margin: auto; width: 640px; height: auto; visibility: hidden; }
+
+/* ---------- Finishing ---------- */
+#grain { pointer-events: none; z-index: 60; background-size: 1080px 1920px; mix-blend-mode: overlay; opacity: .5; }
+#flash { pointer-events: none; z-index: 70; background: #fff; opacity: 0; }
+
+/* ---------- HUD (hidden in render mode) ---------- */
+#hud {
+  position: fixed; left: 12px; bottom: 12px; z-index: 100;
+  display: flex; gap: 12px; align-items: center;
+  font: 12px/1 ui-monospace, monospace; color: #fff; opacity: .75;
+}
+#hud button { font: inherit; background: #fff; color: #000; border: 0; padding: 8px 12px; cursor: pointer; }
+#hud .hint { opacity: .6; }
+body.render #hud { display: none; }
+@media (max-width: 600px) { #hud .hint { display: none; } }
