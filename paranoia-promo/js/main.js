@@ -213,7 +213,7 @@
       const hit = t + fly * 0.45;
       tl.set(p.tapes, { autoAlpha: 1 }, hit);
       shake(tl, hit, 0.2, 16);
-      flash(tl, hit, 0.22);
+      // no white flash: white is reserved for the BAD VIBEEEES cards
     };
 
     shards.forEach((p, k) => land(p, cut.shards[k], at + cut.shards[k].at, cut.shards[k].fly || cut.fly));
@@ -405,7 +405,7 @@
   async function boot() {
     const fontsToLoad = [
       '700 100px "Courier Prime"', '700 100px "Inter"', '800 100px "Roboto Slab"',
-      '100px "Permanent Marker"', '700 100px "Syncopate"',
+      '700 100px "Caveat"', '800 expanded 100px "Archivo"',
     ];
     await Promise.all(fontsToLoad.map(f => document.fonts.load(f, 'BADVIBES0123').catch(() => null)));
 

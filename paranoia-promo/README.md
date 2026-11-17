@@ -64,5 +64,5 @@ vendor/gsap.min.js  GSAP 3.12.5
 
 - **Logotipo** — `#logo` fica numa camada própria, centralizado, fora do contêiner que treme; ele nunca é animado, apenas aparece ou some com corte seco (some nas telas BAD VIBEEEES e durante as 5 fontes do encerramento; volta sozinho no final).
 - **Imagens** — são os arquivos Stories originais, sem nenhuma alteração. O preto e branco é um filtro CSS aplicado só na exibição (`.piece .photo img` em `style.css`); para ver as cores originais, basta remover o `grayscale(1)`.
-- **Fontes** — Courier Prime (máquina de escrever), Inter (normal), Roboto Slab (slab), Permanent Marker (manuscrita), Syncopate (estendida); todas OFL e incluídas em `assets/fonts/`.
+- **Fontes** — Courier Prime (máquina de escrever), Inter (normal), Roboto Slab (slab), Caveat (manuscrita), Archivo Expanded (estendida) — o "bad vibes" final é todo em minúsculas; todas OFL e incluídas em `assets/fonts/`.
 - **Estampas usadas** — foi usada a "stories 1" de cada ensaio: Cold Alone Alive *roxa* e Reign in Hell *amarela*. Para trocar, basta substituir o arquivo em `assets/stories/`.
