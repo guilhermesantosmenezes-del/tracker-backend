@@ -7,6 +7,8 @@
 @font-face { font-family: "Courier Prime"; font-weight: 700; src: url("../assets/fonts/courier-prime-latin-700-normal.woff2") format("woff2"); font-display: block; }
 @font-face { font-family: "Inter"; font-weight: 700; src: url("../assets/fonts/inter-latin-700-normal.woff2") format("woff2"); font-display: block; }
 @font-face { font-family: "Roboto Slab"; font-weight: 800; src: url("../assets/fonts/roboto-slab-latin-800-normal.woff2") format("woff2"); font-display: block; }
+@font-face { font-family: "Sedgwick Ave Display"; src: url("../assets/fonts/sedgwick-ave-display-latin-400-normal.woff2") format("woff2"); font-display: block; }
+@font-face { font-family: "Permanent Marker"; src: url("../assets/fonts/permanent-marker-latin-400-normal.woff2") format("woff2"); font-display: block; }
 @font-face { font-family: "Caveat"; font-weight: 700; src: url("../assets/fonts/caveat-latin-700-normal.woff2") format("woff2"); font-display: block; }
 @font-face { font-family: "Archivo"; font-weight: 100 900; font-stretch: 62% 125%; src: url("../assets/fonts/archivo-variable-latin.woff2") format("woff2"); font-display: block; }
 
@@ -102,16 +104,24 @@ body { font-family: var(--typewriter); color: #fff; }
   z-index: 50;
 }
 
-/* ---------- BAD VIBEEEES interludes ---------- */
-/* Pure white, black typewriter type, first line sliced by the top edge */
+/* ---------- bad vibeeees white cards ---------- */
 .bv { background: #fff; }
-.bv-type {
-  position: absolute; left: 34px; top: 0; margin: 0;
-  font: 700 220px/0.9 var(--typewriter); color: #000;
-  letter-spacing: -0.04em; white-space: nowrap;
-  transform: translateY(-0.4em);
+/* thin hand lettering, staggered like the reference's "you / are / art." */
+.bv-a {
+  position: absolute; left: 0; top: 0; width: 1080px; height: 1920px;
+  font: 400 170px/1 "Sedgwick Ave Display", cursive; color: #111;
 }
-.bv-type span { display: block; }
+.bv-a span { position: absolute; white-space: nowrap; }
+.bv-a .l1 { left: 513px; top: 880px; }
+.bv-a .l2 { left: 300px; top: 1180px; }
+.bv-a .l3 { left: 260px; top: 1460px; }
+/* giant brush lettering bleeding off every edge */
+.bv-c {
+  position: absolute; left: -110px; top: -210px; visibility: hidden;
+  font: 400 720px/0.78 "Permanent Marker", cursive; color: #000;
+  -webkit-text-stroke: 12px #000; white-space: nowrap;
+}
+.bv-c span { display: block; transform: scaleX(.7); transform-origin: 0 50%; }
 
 /* ---------- Finale: BAD VIBES in 5 type identities ---------- */
 .finale { background: #000; }
@@ -142,5 +152,4 @@ body.render #hud { display: none; }
 @media (max-width: 600px) { #hud .hint { display: none; } }
 
 /* typed characters / fitted words */
-.bv-type .c { font-style: normal; }
 .fw span { display: inline-block; }

@@ -3,15 +3,15 @@
 
    0.00  flash montage: 8 hard cuts in 1 s, logo fixed on top
    1.00  S1 Fears Grow Old        (paper cut over black)
-   4.30  S2 Cold Alone Alive      (paper cut over S1)
-   7.60  BAD VIBEEEES #1          (dry cut: white, typewriter, cut by the top edge)
-   8.95  S3 Evil Walks Beside Me  (paper strip over the white card)
-  12.40  S4 Blinding Faith        (collage shards + paper cut)
-  15.90  BAD VIBEEEES #2          (dry cut)
-  17.25  S5 Reign in Hell         (corner paper cut over the white card)
-  21.00  S6 NMA                   (vertical paper strip)
-  25.30  BAD VIBES finale         (typewriter / normal / slab / handwritten / extended, no logo)
-  27.87  logo alone on black until the end
+   4.50  S2 Cold Alone Alive      (paper cut over S1)
+   8.00  bad vibeeees #1          (white card, reference beats: hand lettering, zoom, brush)
+   8.33  S3 Evil Walks Beside Me  (paper strip lands on the white card)
+  12.00  S4 Blinding Faith        (collage shards + paper cut)
+  15.67  bad vibeeees #2          (white card)
+  16.00  S5 Reign in Hell         (corner paper cut lands on the white card)
+  20.40  S6 NMA                   (vertical paper strip)
+  25.00  bad vibes finale         (typewriter / normal / slab / handwritten / extended, no logo)
+  27.57  logo alone on black until the end
   30.00  end
    ========================================================= */
 (() => {
@@ -77,15 +77,11 @@
   ];
 
   const T = {
-    shirts: [1.00, 4.30, 8.95, 12.40, 17.25, 21.00],
-    bv: [7.60, 15.90],
-    finale: 25.30,
-    styleDur: 0.50,   // each bad vibes type style
+    shirts: [1.00, 4.50, 8.33, 12.00, 16.00, 20.40],
+    bv: [8.00, 15.67],   // white cards; the next shirt starts landing 10 frames in
+    finale: 25.00,
+    styleDur: 0.50,      // each bad vibes type style
   };
-
-  // white-card tracking animation (letter-spacing)
-  const TRACK_FROM = '-0.06em';
-  const TRACK_TO = '0.16em';
 
   /* ---------- DOM ---------- */
   const $ = (s, el = document) => el.querySelector(s);
@@ -253,6 +249,16 @@
     full(t);    t += 3 * F;
     tl.set(img, { attr: { class: 'ph whip' }, x: 70 }, t); t += 2 * F;
     tl.set(img, { attr: { class: 'ph' }, x: 0 }, t);
+    // longer holds get a second burst
+    if (span > 2.6) {
+      let u = from + span * 0.58;
+      crop(b, u); u += 4 * F;
+      full(u);    u += 3 * F;
+      tl.set(img, { attr: { class: 'ph whip' }, x: -70 }, u); u += 2 * F;
+      tl.set(img, { attr: { class: 'ph' }, x: 0 }, u);
+      crop(a, u + 2 * F);
+      full(u + 6 * F);
+    }
     // late punch, right before the next cut
     const p = from + span * 0.8;
     crop(a, p);
@@ -291,18 +297,28 @@
     return t;
   }
 
-  /* BAD VIBEEEES: dry cut to clean white; the typewriter strikes one
-     character per frame, first line sliced by the top edge. */
+  /* BAD VIBEEEES white cards — same beats as the reference edit:
+       4 f  thin hand lettering, staggered lines, on light grey
+       4 f  hard zoom into the same lettering, cut by the top edge, white
+       1 f  giant brush lettering overflowing every edge, on grey
+       2 f  same on white
+       …    same, jumped sideways — the next shirt lands on top of it */
   function bvScene(tl, el, at, prevScenes) {
-    tl.set(el, { autoAlpha: 1 }, at);
+    const a = $('.bv-a', el), c = $('.bv-c', el);
+    tl.set(el, { autoAlpha: 1, backgroundColor: '#ececec' }, at);
     tl.set(logo, { autoAlpha: 0 }, at);
     hide(tl, prevScenes, at);
-    $$('.c', el).forEach((c, i) => tl.set(c, { autoAlpha: 1 }, at + i * F));
-    // tracking: the letters open up while/after they are typed
-    tl.fromTo($('.bv-type', el),
-      { letterSpacing: TRACK_FROM },
-      { letterSpacing: TRACK_TO, duration: 1.7, ease: 'power3.out', immediateRender: false },
-      at + 4 * F);
+    tl.set(a, { autoAlpha: 1, scale: 1, x: 0, y: 0 }, at);
+    tl.set(c, { autoAlpha: 0, x: 0 }, at);
+    // zoom: second line lands at the very top, sliced
+    tl.set(el, { backgroundColor: '#ffffff' }, at + 4 * F);
+    tl.set(a, { scale: 2.3, x: -645, y: -2794 }, at + 4 * F);
+    // brush card
+    tl.set(a, { autoAlpha: 0 }, at + 8 * F);
+    tl.set(c, { autoAlpha: 1 }, at + 8 * F);
+    tl.set(el, { backgroundColor: '#c4c4c4' }, at + 8 * F);
+    tl.set(el, { backgroundColor: '#ffffff' }, at + 9 * F);
+    tl.set(c, { x: -110 }, at + 11 * F);
   }
 
   /* Finale, modelled on the reference: the same words swapped through
@@ -338,21 +354,10 @@
       shirtScenes[4].el, shirtScenes[5].el, finaleEl];
     order.forEach((el, z) => { el.style.zIndex = z + 1; scenesEl.appendChild(el); });
 
-    // typewriter: split into characters (typed one per frame), fit width
-    const bvChars = [];
-    bv.forEach(el => {
-      const h = $('.bv-type', el);
-      h.style.letterSpacing = TRACK_TO;        // fit at the widest tracking
-      fit(h, 1080 - 34 - 24);
-      h.style.letterSpacing = TRACK_FROM;
-      $$('span', h).forEach(line => {
-        line.innerHTML = [...line.textContent].map(ch => '<i class="c">' + ch + '</i>').join('');
-      });
-      bvChars.push(...$$('.c', h));
-    });
     $$('.fw span', finaleEl).forEach(sp => fit(sp, 900));
+    gsap.set(bv.map(el => $('.bv-a', el)), { transformOrigin: '0 0' });
 
-    gsap.set([...shirtScenes.map(s => s.el), ...bv, finaleEl, introEl, ...introShots, ...bvChars], { autoAlpha: 0 });
+    gsap.set([...shirtScenes.map(s => s.el), ...bv, finaleEl, introEl, ...introShots], { autoAlpha: 0 });
     gsap.set(logo, { autoAlpha: 0 });
 
     const tl = gsap.timeline({ paused: true, defaults: { ease: 'none' } });
@@ -417,6 +422,7 @@
     const fontsToLoad = [
       '700 100px "Courier Prime"', '700 100px "Inter"', '800 100px "Roboto Slab"',
       '700 100px "Caveat"', '800 expanded 100px "Archivo"',
+      '100px "Sedgwick Ave Display"', '100px "Permanent Marker"',
     ];
     await Promise.all(fontsToLoad.map(f => document.fonts.load(f, 'BADVIBES0123').catch(() => null)));
 
