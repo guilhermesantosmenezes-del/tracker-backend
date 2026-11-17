@@ -32,17 +32,19 @@ O render captura quadro a quadro a mesma GSAP Timeline (`window.PARANOIA.seek(t)
 
 | tempo | cena | transição |
 |---|---|---|
-| 0.00 | logo sobre preto | — |
-| 0.30 | 01 Fears Grow Old with the Heart | recorte de papel rasgado entra por baixo, é "colado" com fita e assume a tela |
-| 3.45 | 02 Cold Alone Alive | recorte entra pela direita, sobre a cena 01 |
-| 6.95 | **BAD VIBEEEES** #1 | corte seco |
-| 8.70 | 03 Evil Walks Beside Me | faixa de papel horizontal colada sobre o cartaz |
-| 11.85 | 04 Blinding Faith | colagem: 2 fragmentos + recorte principal |
-| 15.15 | **BAD VIBEEEES** #2 | corte seco |
+| 0.00 | montagem relâmpago: 8 cortes em 1 s (detalhes, whip-pan, card central), logo fixo | cortes secos a cada 3–4 quadros |
+| 1.00 | 01 Fears Grow Old with the Heart | recorte de papel rasgado entra por baixo, é "colado" com fita e assume a tela |
+| 3.95 | 02 Cold Alone Alive | recorte entra pela direita, sobre a cena 01 |
+| 7.15 | **BAD VIBEEEES** #1 | corte seco |
+| 8.80 | 03 Evil Walks Beside Me | faixa de papel horizontal colada sobre o cartaz |
+| 11.90 | 04 Blinding Faith | colagem: 2 fragmentos + recorte principal |
+| 15.25 | **BAD VIBEEEES** #2 | corte seco |
 | 16.95 | 05 Reign in Hell | recorte de canto sobre o cartaz |
-| 20.10 | 06 NMA (Negative Mental Attitude) | faixa vertical caindo de cima |
+| 20.05 | 06 NMA (Negative Mental Attitude) | faixa vertical caindo de cima |
 | 23.45 | **BAD VIBES** — 5 estilos | cortes secos: Anton → máquina de escrever → carta-resgate → contorno empilhado → Blackletter CS Modula + logo |
 | 30.00 | fim no logo | — |
+
+Dentro de cada camiseta, seguindo o vídeo de referência: cortes secos de zoom no detalhe da estampa e do adesivo, um quadro de whip-pan (borrão de movimento) e um último punch-in antes da próxima entrada. O logo não se mexe em nenhum desses momentos. Os pontos de foco ficam em `SHIRTS[].focus`, no `js/main.js`.
 
 ## Estrutura
 

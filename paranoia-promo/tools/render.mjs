@@ -46,7 +46,7 @@ const { FPS, DURATION } = await page.evaluate(() => ({ FPS: window.PARANOIA.FPS,
 const shot = async (frame) => {
   await page.evaluate(t => window.PARANOIA.seek(t), frame / FPS);
   await page.evaluate(() => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r))));
-  return page.screenshot({ type: 'png' });
+  return page.screenshot({ type: args.frames ? 'png' : 'jpeg', quality: args.frames ? undefined : 95 });
 };
 
 fs.mkdirSync(OUT, { recursive: true });
@@ -63,7 +63,7 @@ if (args.frames) {
   const to = Math.round((Number(args.to) || DURATION) * FPS);
   const file = path.join(OUT, args.out || 'paranoia-bad-vibes.mp4');
   const ff = spawn('ffmpeg', ['-y', '-f', 'image2pipe', '-framerate', String(FPS), '-i', '-',
-    '-c:v', 'libx264', '-preset', 'slow', '-crf', '17', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', file],
+    '-c:v', 'libx264', '-preset', 'medium', '-crf', '17', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', file],
   { stdio: ['pipe', 'ignore', 'inherit'] });
   for (let f = from; f < to; f++) {
     const buf = await shot(f);

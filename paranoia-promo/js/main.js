@@ -1,15 +1,15 @@
 /* =========================================================
    PARANOIA — BAD VIBES · master GSAP timeline (30.00 s)
 
-   0.00  logo on black
-   0.30  S1 Fears Grow Old        (paper cut over black)
-   3.45  S2 Cold Alone Alive      (paper cut over S1)
-   6.95  BAD VIBEEEES #1          (dry cut)
-   8.70  S3 Evil Walks Beside Me  (paper strip over the poster)
-  11.85  S4 Blinding Faith        (collage shards + paper cut)
-  15.15  BAD VIBEEEES #2          (dry cut)
+   0.00  flash montage: 8 hard cuts in 1 s, logo fixed on top
+   1.00  S1 Fears Grow Old        (paper cut over black)
+   3.95  S2 Cold Alone Alive      (paper cut over S1)
+   7.15  BAD VIBEEEES #1          (dry cut)
+   8.80  S3 Evil Walks Beside Me  (paper strip over the poster)
+  11.90  S4 Blinding Faith        (collage shards + paper cut)
+  15.25  BAD VIBEEEES #2          (dry cut)
   16.95  S5 Reign in Hell         (corner paper cut over the poster)
-  20.10  S6 NMA                   (vertical paper strip)
+  20.05  S6 NMA                   (vertical paper strip)
   23.45  BAD VIBES finale         (5 type styles, logo on the 5th)
   30.00  end
    ========================================================= */
@@ -23,13 +23,30 @@
   if (RENDER) document.body.classList.add('render');
 
   /* ---------- Content ---------- */
+  /* focus: punch-in crops used by the fast cuts — [x, y, zoom] in image px
+     (first = the print on the shirt, second = a detail / the sticker). */
   const SHIRTS = [
-    { src: 'assets/stories/01-fears-grow-old.png',      label: 'FEARS GROW OLD WITH THE HEART' },
-    { src: 'assets/stories/02-cold-alone-alive.png',    label: 'COLD ALONE ALIVE' },
-    { src: 'assets/stories/03-evil-walks-beside-me.png', label: 'EVIL WALKS BESIDE ME' },
-    { src: 'assets/stories/04-blinding-faith.png',      label: 'BLINDING FAITH' },
-    { src: 'assets/stories/05-reign-in-hell.png',       label: 'REIGN IN HELL' },
-    { src: 'assets/stories/06-nma.png',                 label: 'NEGATIVE MENTAL ATTITUDE' },
+    { src: 'assets/stories/01-fears-grow-old.png',       label: 'FEARS GROW OLD WITH THE HEART', focus: [[545, 960, 1.9], [210, 380, 2.4]] },
+    { src: 'assets/stories/02-cold-alone-alive.png',     label: 'COLD ALONE ALIVE',              focus: [[570, 990, 2.3], [880, 230, 2.4]] },
+    { src: 'assets/stories/03-evil-walks-beside-me.png', label: 'EVIL WALKS BESIDE ME',          focus: [[490, 1010, 2.4], [470, 1260, 1.8]] },
+    { src: 'assets/stories/04-blinding-faith.png',       label: 'BLINDING FAITH',                focus: [[340, 1080, 1.8], [275, 375, 2.2]] },
+    { src: 'assets/stories/05-reign-in-hell.png',        label: 'REIGN IN HELL',                 focus: [[565, 930, 1.9], [190, 210, 2.6]] },
+    { src: 'assets/stories/06-nma.png',                  label: 'NEGATIVE MENTAL ATTITUDE',      focus: [[540, 1010, 1.7], [255, 280, 2.4]] },
+  ];
+
+  /* Opening montage — modelled on the reference edit: one hard cut every
+     3–4 frames, crops / whip-pans / a small card, logo never moves.
+     [shirt index, type, focus index or null, frames] */
+  const INTRO = [
+    [null, 'black', null, 3],
+    [5, 'crop', 0, 4],
+    [0, 'whip', null, 3],
+    [2, 'crop', 0, 4],
+    [1, 'card', null, 4],
+    [4, 'full', null, 3],
+    [3, 'whip-v', 0, 3],
+    [0, 'crop', 0, 4],
+    [null, 'black', null, 2],
   ];
 
   /* ---------- Paper-cut choreography, one per shirt ----------
@@ -59,8 +76,8 @@
   ];
 
   const T = {
-    shirts: [0.30, 3.45, 8.70, 11.85, 16.95, 20.10],
-    bv: [6.95, 15.15],
+    shirts: [1.00, 3.95, 8.80, 11.90, 16.95, 20.05],
+    bv: [7.15, 15.25],
     finale: 23.45,
   };
 
@@ -96,6 +113,7 @@
     img.src = shirt.src;
     img.alt = shirt.label;
     img.decoding = 'sync';
+    img.className = 'ph';
     photo.appendChild(img);
     paper.style.backgroundImage = `url(${textures.paper})`;
     const dirt = div('dirt', photo);
@@ -237,17 +255,59 @@
     return full;
   }
 
-  /* Life on a shirt while it holds: slow push-in + dry punches + slips. */
-  function holdMotion(tl, scene, from, to) {
+  /* Life on a shirt while it holds: slow push-in, plus the reference's
+     fast-cut vocabulary — dry punch-in crops on the print and the sticker,
+     a 2-frame whip-pan, then back to the full frame. */
+  function holdMotion(tl, scene, shirt, from, to) {
     const { img, photo } = scene.main;
     tl.fromTo(img, { scale: 1 }, { scale: 1.075, duration: to - from + 1.2, ease: 'none', immediateRender: false }, from - 0.9);
+    const [a, b] = shirt.focus;
+    const crop = (f, at) => tl.set(photo, { scale: f[2], transformOrigin: `${f[0]}px ${f[1]}px` }, at);
+    const full = at => tl.set(photo, { scale: 1 }, at);
     const span = to - from;
-    const p1 = from + span * 0.38, p2 = from + span * 0.74;
-    tl.set(photo, { scale: 1.05, transformOrigin: '50% 50%' }, p1);
-    tl.set(photo, { scale: 1 }, p1 + 3 * F);
-    tl.set(img, { x: 22 }, p2);
-    tl.set(img, { x: -14 }, p2 + F);
-    tl.set(img, { x: 0 }, p2 + 2 * F);
+    let t = from + Math.max(0.3, span * 0.26);
+    crop(a, t); t += 6 * F;
+    full(t);    t += 4 * F;
+    crop(b, t); t += 5 * F;
+    full(t);    t += 3 * F;
+    tl.set(img, { attr: { class: 'ph whip' }, x: 70 }, t); t += 2 * F;
+    tl.set(img, { attr: { class: 'ph' }, x: 0 }, t);
+    // late punch, right before the next cut
+    const p = from + span * 0.8;
+    crop(a, p);
+    full(p + 3 * F);
+  }
+
+  /* 1-second flash montage opening the video. */
+  function buildIntro(textures) {
+    const root = $('#intro');
+    return INTRO.map(([si, type, fi]) => {
+      const shot = div('shot ' + type, root);
+      if (si === null) return shot;
+      const img = new Image();
+      img.src = SHIRTS[si].src;
+      img.alt = '';
+      if (type === 'card') { div('frame', shot).appendChild(img); }
+      else shot.appendChild(img);
+      if (fi !== null) {
+        const [x, y, z] = SHIRTS[si].focus[fi];
+        gsap.set(img, { scale: z, transformOrigin: `${x}px ${y}px` });
+      }
+      if (type === 'whip') gsap.set(img, { x: 80 });
+      return shot;
+    });
+  }
+
+  function introScene(tl, el, shots) {
+    tl.set(el, { autoAlpha: 1 }, 0);
+    let t = 0;
+    INTRO.forEach(([, , , frames], k) => {
+      tl.set(shots, { autoAlpha: 0 }, t);
+      tl.set(shots[k], { autoAlpha: 1 }, t);
+      if (k > 0 && k < INTRO.length - 1) shake(tl, t, 2 * F, 10);
+      t += frames * F;
+    });
+    return t;
   }
 
   function bvScene(tl, el, at, dur, prevScenes) {
@@ -326,9 +386,11 @@
     const shirtScenes = SHIRTS.map((s, i) => buildShirtScene(s, i, textures));
     const bv = [$('#bv1'), $('#bv2')];
     const finaleEl = $('#finale');
+    const introEl = $('#intro');
+    const introShots = buildIntro(textures);
 
     // single stacking order for everything that cuts/overlaps
-    const order = [shirtScenes[0].el, shirtScenes[1].el, bv[0], shirtScenes[2].el, shirtScenes[3].el, bv[1],
+    const order = [introEl, shirtScenes[0].el, shirtScenes[1].el, bv[0], shirtScenes[2].el, shirtScenes[3].el, bv[1],
       shirtScenes[4].el, shirtScenes[5].el, finaleEl];
     order.forEach((el, z) => { el.style.zIndex = z + 1; scenesEl.appendChild(el); });
     bv.forEach(el => { $('.bv-paper', el).style.backgroundImage = `url(${textures.poster})`; });
@@ -340,36 +402,37 @@
     });
     fit($('#fw5 span'), 1000);
 
-    gsap.set([...shirtScenes.map(s => s.el), ...bv, finaleEl], { autoAlpha: 0 });
+    gsap.set([...shirtScenes.map(s => s.el), ...bv, finaleEl, introEl, ...introShots], { autoAlpha: 0 });
     gsap.set(logo, { autoAlpha: 0 });
 
     const tl = gsap.timeline({ paused: true, defaults: { ease: 'none' } });
     const S = shirtScenes;
 
-    // 0.00 — logo alone on black
+    // 0.00 — flash montage, logo fixed on top
     tl.set(logo, { autoAlpha: 1 }, 0);
+    introScene(tl, introEl, introShots);
 
     // block 1
-    const f1 = paperIn(tl, S[0], T.shirts[0], []);
+    const f1 = paperIn(tl, S[0], T.shirts[0], [introEl]);
     const f2 = paperIn(tl, S[1], T.shirts[1], [S[0].el]);
-    holdMotion(tl, S[0], f1, T.shirts[1] + 1.1);
-    holdMotion(tl, S[1], f2, T.bv[0]);
+    holdMotion(tl, S[0], SHIRTS[0], f1, T.shirts[1] + 1.1);
+    holdMotion(tl, S[1], SHIRTS[1], f2, T.bv[0]);
     bvScene(tl, bv[0], T.bv[0], T.shirts[2] - T.bv[0], [S[1].el]);
 
     // block 2 — paper lands on the poster
     const f3 = paperIn(tl, S[2], T.shirts[2], [bv[0]]);
     tl.set(logo, { autoAlpha: 1 }, f3);
     const f4 = paperIn(tl, S[3], T.shirts[3], [S[2].el]);
-    holdMotion(tl, S[2], f3, T.shirts[3] + 1.2);
-    holdMotion(tl, S[3], f4, T.bv[1]);
+    holdMotion(tl, S[2], SHIRTS[2], f3, T.shirts[3] + 1.2);
+    holdMotion(tl, S[3], SHIRTS[3], f4, T.bv[1]);
     bvScene(tl, bv[1], T.bv[1], T.shirts[4] - T.bv[1], [S[3].el]);
 
     // block 3
     const f5 = paperIn(tl, S[4], T.shirts[4], [bv[1]]);
     tl.set(logo, { autoAlpha: 1 }, f5);
     const f6 = paperIn(tl, S[5], T.shirts[5], [S[4].el]);
-    holdMotion(tl, S[4], f5, T.shirts[5] + 1.1);
-    holdMotion(tl, S[5], f6, T.finale);
+    holdMotion(tl, S[4], SHIRTS[4], f5, T.shirts[5] + 1.1);
+    holdMotion(tl, S[5], SHIRTS[5], f6, T.finale);
 
     // finale
     finaleScene(tl, T.finale, [S[5].el]);

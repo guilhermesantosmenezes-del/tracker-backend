@@ -34,6 +34,13 @@
         <feTurbulence type="turbulence" baseFrequency="0.05" numOctaves="1" seed="9" result="warp"/>
         <feDisplacementMap in="eroded" in2="warp" scale="4" xChannelSelector="R" yChannelSelector="G"/>
       </filter>
+      <!-- Horizontal motion blur for whip-pan cut frames -->
+      <filter id="whip" x="-10%" y="0" width="120%" height="100%">
+        <feGaussianBlur stdDeviation="70 2"/>
+      </filter>
+      <filter id="whip-v" x="0" y="-10%" width="100%" height="120%">
+        <feGaussianBlur stdDeviation="2 80"/>
+      </filter>
     </defs>
   </svg>
 
@@ -43,6 +50,9 @@
       <!-- Everything that may shake lives here. The logo does NOT. -->
       <div id="shake" class="layer">
         <div id="scenes" class="layer"><!-- shirt scenes are built by js/main.js --></div>
+
+        <!-- Opening flash montage (frames built by js/main.js) -->
+        <section class="scene intro" id="intro"></section>
 
         <!-- BAD VIBEEEES interlude #1 -->
         <section class="scene bv" id="bv1">

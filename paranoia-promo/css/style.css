@@ -87,6 +87,26 @@ body { font-family: "Special Elite", monospace; color: #fff; }
   mix-blend-mode: normal;
 }
 
+/* ---------- Opening montage ---------- */
+.intro { background: #000; }
+.intro .shot { position: absolute; inset: 0; visibility: hidden; overflow: hidden; }
+.intro .shot img {
+  position: absolute; left: 0; top: 0; width: 1080px; height: 1920px;
+  filter: grayscale(1) contrast(1.3) brightness(.92);
+}
+.intro .shot.whip img { filter: grayscale(1) contrast(1.3) brightness(.92) url(#whip); }
+.intro .shot.whip-v img { filter: grayscale(1) contrast(1.3) brightness(.92) url(#whip-v); }
+/* photo in a small card in the middle of black, logo on top */
+.intro .shot.card { background: #000; }
+.intro .shot.card .frame {
+  position: absolute; left: 330px; top: 640px; width: 420px; height: 640px; overflow: hidden;
+  outline: 6px solid #fff; outline-offset: -1px;
+}
+.intro .shot.card .frame img { left: -330px; top: -640px; }
+
+/* whip-pan frame inside shirt holds */
+.piece .photo img.whip { filter: grayscale(1) contrast(1.22) brightness(.96) url(#whip); }
+
 /* ---------- Fixed logo (never animated) ---------- */
 #logo {
   position: absolute; inset: 0; margin: auto;
