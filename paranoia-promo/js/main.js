@@ -77,10 +77,10 @@
   ];
 
   const T = {
-    shirts: [1.00, 4.50, 8.33, 12.00, 16.00, 20.40],
-    bv: [8.00, 15.67],   // white cards; the next shirt starts landing 10 frames in
-    finale: 25.00,
-    styleDur: 0.50,      // each bad vibes type style
+    shirts: [1.00, 4.75, 8.83, 12.80, 17.08, 21.70],
+    bv: [8.50, 16.75],   // white cards; the next shirt starts landing 10 frames in
+    finale: 26.30,
+    styleDur: 0.20,      // each bad vibes type style (6 frames, fast like the reference)
   };
 
   /* ---------- DOM ---------- */

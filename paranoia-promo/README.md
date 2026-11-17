@@ -34,15 +34,15 @@ O render captura quadro a quadro a mesma GSAP Timeline (`window.PARANOIA.seek(t)
 |---|---|---|
 | 0.00 | montagem relâmpago: 8 cortes em 1 s (detalhes, whip-pan, card central), logo fixo | cortes secos a cada 3–4 quadros |
 | 1.00 | 01 Fears Grow Old with the Heart | recorte de papel rasgado entra por baixo, é "colado" com fita e assume a tela |
-| 4.50 | 02 Cold Alone Alive | recorte entra pela direita, sobre a cena 01 |
-| 8.00 | **bad vibeeees** #1 (tela branca) | igual à referência: letra à mão pequena e escalonada (4 quadros) → zoom seco cortado no topo (4 quadros) → pincel gigante vazando pelas bordas (1 quadro cinza, depois branco, com salto lateral) |
-| 8.33 | 03 Evil Walks Beside Me | faixa de papel horizontal colada sobre a tela branca |
-| 12.00 | 04 Blinding Faith | colagem: 2 fragmentos + recorte principal |
-| 15.67 | **bad vibeeees** #2 (tela branca) | mesma sequência da #1 |
-| 16.00 | 05 Reign in Hell | recorte de canto sobre a tela branca |
-| 20.40 | 06 NMA (Negative Mental Attitude) | faixa vertical caindo de cima |
-| 25.00 | **bad vibes**, sem logo | cortes secos (0,5 s cada): máquina de escrever → normal → slab → manuscrita → estendida |
-| 27.57 | logo sozinho no preto até o fim | corte seco |
+| 4.75 | 02 Cold Alone Alive | recorte entra pela direita, sobre a cena 01 |
+| 8.50 | **bad vibeeees** #1 (tela branca) | igual à referência: letra à mão pequena e escalonada (4 quadros) → zoom seco cortado no topo (4 quadros) → pincel gigante vazando pelas bordas (1 quadro cinza, depois branco, com salto lateral) |
+| 8.83 | 03 Evil Walks Beside Me | faixa de papel horizontal colada sobre a tela branca |
+| 12.80 | 04 Blinding Faith | colagem: 2 fragmentos + recorte principal |
+| 16.75 | **bad vibeeees** #2 (tela branca) | mesma sequência da #1 |
+| 17.08 | 05 Reign in Hell | recorte de canto sobre a tela branca |
+| 21.70 | 06 NMA (Negative Mental Attitude) | faixa vertical caindo de cima |
+| 26.30 | **bad vibes**, sem logo | cortes secos (0,2 s cada): máquina de escrever → normal → slab → manuscrita → estendida |
+| 27.37 | logo sozinho no preto até o fim | corte seco |
 
 Dentro de cada camiseta, seguindo o vídeo de referência: cortes secos de zoom no detalhe da estampa e do adesivo, um quadro de whip-pan (borrão de movimento) e um último punch-in antes da próxima entrada. O logo não se mexe em nenhum desses momentos. Os pontos de foco ficam em `SHIRTS[].focus`, no `js/main.js`.
 
