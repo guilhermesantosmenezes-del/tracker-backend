@@ -3,14 +3,15 @@
 
    0.00  flash montage: 8 hard cuts in 1 s, logo fixed on top
    1.00  S1 Fears Grow Old        (paper cut over black)
-   3.95  S2 Cold Alone Alive      (paper cut over S1)
-   7.15  BAD VIBEEEES #1          (dry cut)
-   8.80  S3 Evil Walks Beside Me  (paper strip over the poster)
-  11.90  S4 Blinding Faith        (collage shards + paper cut)
-  15.25  BAD VIBEEEES #2          (dry cut)
-  16.95  S5 Reign in Hell         (corner paper cut over the poster)
-  20.05  S6 NMA                   (vertical paper strip)
-  23.45  BAD VIBES finale         (5 type styles, logo on the 5th)
+   4.30  S2 Cold Alone Alive      (paper cut over S1)
+   7.60  BAD VIBEEEES #1          (dry cut: white, typewriter, cut by the top edge)
+   8.95  S3 Evil Walks Beside Me  (paper strip over the white card)
+  12.40  S4 Blinding Faith        (collage shards + paper cut)
+  15.90  BAD VIBEEEES #2          (dry cut)
+  17.25  S5 Reign in Hell         (corner paper cut over the white card)
+  21.00  S6 NMA                   (vertical paper strip)
+  25.30  BAD VIBES finale         (typewriter / normal / slab / handwritten / extended, no logo)
+  27.87  logo alone on black until the end
   30.00  end
    ========================================================= */
 (() => {
@@ -76,9 +77,10 @@
   ];
 
   const T = {
-    shirts: [1.00, 3.95, 8.80, 11.90, 16.95, 20.05],
-    bv: [7.15, 15.25],
-    finale: 23.45,
+    shirts: [1.00, 4.30, 8.95, 12.40, 17.25, 21.00],
+    bv: [7.60, 15.90],
+    finale: 25.30,
+    styleDur: 0.50,   // each BAD VIBES type style
   };
 
   /* ---------- DOM ---------- */
@@ -160,31 +162,6 @@
       createPiece(el, shirt, s, 1000 + i * 37 + k * 13, textures, null));
     const main = createPiece(el, shirt, cut, 500 + i * 71, textures, { index: String(i + 1).padStart(2, '0') });
     return { el, main, shards, cut };
-  }
-
-  /* ---------- Ransom-note letters (finale style 3) ---------- */
-  function buildRansom() {
-    const fonts = [
-      ['Anton', 190, 400], ['Special Elite', 170, 400], ['UnifrakturCook', 180, 700],
-      ['Archivo Black', 150, 400], ['Rubik Glitch', 160, 400], ['UnifrakturMaguntia', 190, 400],
-    ];
-    const kinds = ['w', 'b', 'w', 'g', 'b', 'w', 'b', 'g'];
-    const r = FX.rng(4242);
-    const root = $('#ransom');
-    ['BAD', 'VIBES'].forEach((word, wi) => {
-      const row = div('row', root);
-      [...word].forEach((ch, ci) => {
-        const s = document.createElement('span');
-        const [fam, size, weight] = fonts[(wi * 3 + ci * 5 + Math.floor(r() * 3)) % fonts.length];
-        s.className = 'chr ' + kinds[(wi * 5 + ci * 3) % kinds.length];
-        s.textContent = ch;
-        s.style.fontFamily = `"${fam}"`;
-        s.style.fontWeight = weight;
-        s.style.fontSize = (size * (0.9 + r() * 0.35)) + 'px';
-        s.style.transform = `rotate(${(r() * 2 - 1) * 9}deg) translateY(${(r() * 2 - 1) * 18}px)`;
-        row.appendChild(s);
-      });
-    });
   }
 
   /* Shrink a text node until it fits the given width. */
@@ -310,75 +287,33 @@
     return t;
   }
 
-  function bvScene(tl, el, at, dur, prevScenes) {
-    const ink = $('.ink', el), ghost = $('.ghost', el), title = $('.bv-title', el);
+  /* BAD VIBEEEES: dry cut to clean white; the typewriter strikes one
+     character per frame, first line sliced by the top edge. */
+  function bvScene(tl, el, at, prevScenes) {
     tl.set(el, { autoAlpha: 1 }, at);
     tl.set(logo, { autoAlpha: 0 }, at);
     hide(tl, prevScenes, at);
-    tl.fromTo(ink, { scale: 1.45 }, { scale: 1, duration: .16, ease: 'steps(4)', immediateRender: false }, at);
-    tl.fromTo(ghost, { scale: 1.7, x: 46, y: 30 }, { scale: 1, x: 12, y: 9, duration: .23, ease: 'steps(5)', immediateRender: false }, at);
-    tl.fromTo(title, { scale: 1 }, { scale: 1.06, duration: dur + 1, ease: 'none', immediateRender: false }, at);
-    shake(tl, at, .32, 26);
-    // misregistration jump
-    tl.set(ghost, { x: -30, y: 16 }, at + .55);
-    tl.set(ghost, { x: 12, y: 9 }, at + .55 + 2 * F);
-    // invert stutter — negative print
-    tl.set(el, { filter: 'invert(1)' }, at + .92);
-    tl.set(el, { filter: 'none' }, at + .92 + 2 * F);
-    tl.set(el, { filter: 'invert(1)' }, at + .92 + 4 * F);
-    tl.set(el, { filter: 'none' }, at + .92 + 5 * F);
-    // punch
-    tl.set(ink, { scale: 1.08 }, at + 1.3);
-    tl.set(ink, { scale: 1 }, at + 1.3 + 2 * F);
-    shake(tl, at + 1.3, .12, 14);
+    $$('.c', el).forEach((c, i) => tl.set(c, { autoAlpha: 1 }, at + i * F));
   }
 
+  /* Finale, modelled on the reference: the same words swapped through
+     five type identities with dry cuts, no logo. When the last one goes,
+     the logo appears alone and the video ends. */
   function finaleScene(tl, at, prevScenes) {
     const el = $('#finale');
     const fws = $$('.fw', el);
-    const fw5 = $('#fw5');
-    const finalLogo = $('#finalLogo');
-
     tl.set(logo, { autoAlpha: 0 }, at);
     hide(tl, prevScenes, at);
     tl.set(el, { autoAlpha: 1 }, at);
-
-    const show = (i, t, d) => {
+    let t = at + 2 * F;                        // 2 black frames
+    fws.forEach(fw => {
       tl.set(fws, { autoAlpha: 0 }, t);
-      if (i < 0) return;
-      tl.set(fws[i], { autoAlpha: 1 }, t);
-      if (d > .3) tl.fromTo(fws[i], { scale: 1 }, { scale: 1.05, duration: d, ease: 'none', immediateRender: false }, t);
-      else tl.set(fws[i], { scale: 1 }, t);
-    };
-
-    let t = at;
-    show(-1, t); t += .12;                      // black beat
-    const pattern = [
-      [0, .55], [1, .45], [2, .55], [3, .45],   // read them
-      [0, .12], [1, .12], [2, .12], [3, .12],   // stutter
-      [0, .08], [2, .08], [1, .08], [3, .08],   // faster
-    ];
-    pattern.forEach(([i, d], k) => {
-      show(i, t, d);
-      if (k < 4) shake(tl, t, .14, 18);
-      t += d;
+      tl.set(fw, { autoAlpha: 1 }, t);
+      t += T.styleDur;
     });
-    show(-1, t); t += 2 * F;                    // 2 black frames
-
-    // 5th style: Blackletter CS Modula
-    show(4, t, 0);
-    tl.fromTo(fw5, { scale: 1.3 }, { scale: 1, duration: .12, ease: 'steps(3)', immediateRender: false }, t);
-    shake(tl, t, .25, 22);
-    tl.set(el, { filter: 'invert(1)' }, t + .38);
-    tl.set(el, { filter: 'none' }, t + .38 + 2 * F);
-
-    // logo reveal — dry cut: word jumps up, original logo appears
-    const L = t + .7;
-    tl.set(fw5, { y: -250, scale: 1 }, L);
-    tl.set(finalLogo, { autoAlpha: 1, y: 230 }, L);
-    flash(tl, L, .5);
-    shake(tl, L, .22, 20);
-    tl.fromTo(fw5, { scale: 1 }, { scale: 1.035, duration: DURATION - L, ease: 'none', immediateRender: false }, L + F);
+    tl.set(fws, { autoAlpha: 0 }, t);
+    tl.set(logo, { autoAlpha: 1 }, t);         // logo alone on black until the end
+    return t;
   }
 
   /* ---------- Build everything ---------- */
@@ -393,16 +328,20 @@
     const order = [introEl, shirtScenes[0].el, shirtScenes[1].el, bv[0], shirtScenes[2].el, shirtScenes[3].el, bv[1],
       shirtScenes[4].el, shirtScenes[5].el, finaleEl];
     order.forEach((el, z) => { el.style.zIndex = z + 1; scenesEl.appendChild(el); });
-    bv.forEach(el => { $('.bv-paper', el).style.backgroundImage = `url(${textures.poster})`; });
 
-    // fit typography (works with Blackletter CS Modula or the fallback)
+    // typewriter: split into characters (typed one per frame), fit width
+    const bvChars = [];
     bv.forEach(el => {
-      const inkB = $$('.ink b', el), ghostB = $$('.ghost b', el);
-      inkB.forEach((b, k) => { const s = fit(b, 990); ghostB[k].style.fontSize = s + 'px'; });
+      const h = $('.bv-type', el);
+      fit(h, 1080 - 34 - 20);
+      $$('span', h).forEach(line => {
+        line.innerHTML = [...line.textContent].map(ch => '<i class="c">' + ch + '</i>').join('');
+      });
+      bvChars.push(...$$('.c', h));
     });
-    fit($('#fw5 span'), 1000);
+    $$('.fw span', finaleEl).forEach(sp => fit(sp, 900));
 
-    gsap.set([...shirtScenes.map(s => s.el), ...bv, finaleEl, introEl, ...introShots], { autoAlpha: 0 });
+    gsap.set([...shirtScenes.map(s => s.el), ...bv, finaleEl, introEl, ...introShots, ...bvChars], { autoAlpha: 0 });
     gsap.set(logo, { autoAlpha: 0 });
 
     const tl = gsap.timeline({ paused: true, defaults: { ease: 'none' } });
@@ -417,15 +356,15 @@
     const f2 = paperIn(tl, S[1], T.shirts[1], [S[0].el]);
     holdMotion(tl, S[0], SHIRTS[0], f1, T.shirts[1] + 1.1);
     holdMotion(tl, S[1], SHIRTS[1], f2, T.bv[0]);
-    bvScene(tl, bv[0], T.bv[0], T.shirts[2] - T.bv[0], [S[1].el]);
+    bvScene(tl, bv[0], T.bv[0], [S[1].el]);
 
-    // block 2 — paper lands on the poster
+    // block 2 — paper lands on the white card
     const f3 = paperIn(tl, S[2], T.shirts[2], [bv[0]]);
     tl.set(logo, { autoAlpha: 1 }, f3);
     const f4 = paperIn(tl, S[3], T.shirts[3], [S[2].el]);
     holdMotion(tl, S[2], SHIRTS[2], f3, T.shirts[3] + 1.2);
     holdMotion(tl, S[3], SHIRTS[3], f4, T.bv[1]);
-    bvScene(tl, bv[1], T.bv[1], T.shirts[4] - T.bv[1], [S[3].el]);
+    bvScene(tl, bv[1], T.bv[1], [S[3].el]);
 
     // block 3
     const f5 = paperIn(tl, S[4], T.shirts[4], [bv[1]]);
@@ -465,15 +404,13 @@
   /* ---------- Boot ---------- */
   async function boot() {
     const fontsToLoad = [
-      '700 100px "BL Modula"', '700 100px "UnifrakturCook"', '100px "UnifrakturMaguntia"', '100px "Anton"',
-      '100px "Special Elite"', '100px "Archivo Black"', '100px "Rubik Glitch"',
+      '700 100px "Courier Prime"', '700 100px "Inter"', '800 100px "Roboto Slab"',
+      '100px "Permanent Marker"', '700 100px "Syncopate"',
     ];
-    await Promise.all(fontsToLoad.map(f => document.fonts.load(f, 'BADVIBES').catch(() => null)));
-    buildRansom();
+    await Promise.all(fontsToLoad.map(f => document.fonts.load(f, 'BADVIBES0123').catch(() => null)));
 
     const textures = {
       paper: FX.grungePaper(31, { dark: 0.55 }),
-      poster: FX.grungePaper(8, { dark: 1 }),
       dirt: FX.photoDirt(19),
       grain: FX.grainFrames(6),
     };

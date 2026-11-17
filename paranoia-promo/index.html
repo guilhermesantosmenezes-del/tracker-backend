@@ -7,33 +7,9 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- SVG filters: xerox distress used by the typography -->
+  <!-- SVG filters: motion blur for whip-pan cut frames -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <defs>
-      <!-- Eats small holes into black ink + roughens edges (photocopied poster) -->
-      <filter id="distress" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
-        <feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="3" seed="11" result="n"/>
-        <feColorMatrix in="n" type="matrix" result="holes"
-          values="0 0 0 0 0
-                  0 0 0 0 0
-                  0 0 0 0 0
-                  -9 0 0 0 6.1"/>
-        <feComposite in="SourceGraphic" in2="holes" operator="in" result="eroded"/>
-        <feTurbulence type="turbulence" baseFrequency="0.035" numOctaves="2" seed="4" result="warp"/>
-        <feDisplacementMap in="eroded" in2="warp" scale="7" xChannelSelector="R" yChannelSelector="G"/>
-      </filter>
-      <!-- Lighter version for white-on-black type -->
-      <filter id="distress-soft" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
-        <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="2" seed="23" result="n"/>
-        <feColorMatrix in="n" type="matrix" result="holes"
-          values="0 0 0 0 0
-                  0 0 0 0 0
-                  0 0 0 0 0
-                  -9 0 0 0 6.6"/>
-        <feComposite in="SourceGraphic" in2="holes" operator="in" result="eroded"/>
-        <feTurbulence type="turbulence" baseFrequency="0.05" numOctaves="1" seed="9" result="warp"/>
-        <feDisplacementMap in="eroded" in2="warp" scale="4" xChannelSelector="R" yChannelSelector="G"/>
-      </filter>
       <!-- Horizontal motion blur for whip-pan cut frames -->
       <filter id="whip" x="-10%" y="0" width="120%" height="100%">
         <feGaussianBlur stdDeviation="70 2"/>
@@ -54,47 +30,21 @@
         <!-- Opening flash montage (frames built by js/main.js) -->
         <section class="scene intro" id="intro"></section>
 
-        <!-- BAD VIBEEEES interlude #1 -->
+        <!-- BAD VIBEEEES interludes: clean white, typewriter, cut by the top edge -->
         <section class="scene bv" id="bv1">
-          <div class="bv-paper"></div>
-          <div class="bv-marks">
-            <i class="reg tl"></i><i class="reg tr"></i><i class="reg bl"></i><i class="reg br"></i>
-            <span class="bv-meta top">PARANOIA ——— VOL. 01 ——— XEROX / DIY</span>
-            <span class="bv-meta bottom">NO REFUNDS · NO GODS · NO GOOD VIBES</span>
-          </div>
-          <h1 class="bv-title">
-            <span class="ghost" aria-hidden="true"><b>BAD</b><b>VIBEEEES</b></span>
-            <span class="ink"><b>BAD</b><b>VIBEEEES</b></span>
-          </h1>
+          <h1 class="bv-type"><span>BAD</span><span>VIBEEEES</span></h1>
+        </section>
+        <section class="scene bv" id="bv2">
+          <h1 class="bv-type"><span>BAD</span><span>VIBEEEES</span></h1>
         </section>
 
-        <!-- BAD VIBEEEES interlude #2 -->
-        <section class="scene bv bv-alt" id="bv2">
-          <div class="bv-paper"></div>
-          <div class="bv-marks">
-            <i class="reg tl"></i><i class="reg tr"></i><i class="reg bl"></i><i class="reg br"></i>
-            <span class="bv-meta top">PARANOIA ——— VOL. 02 ——— CUT / PASTE / COPY</span>
-            <span class="bv-meta bottom">BAD VIBES ONLY · STREETWEAR FOR THE DAMNED</span>
-          </div>
-          <h1 class="bv-title">
-            <span class="ghost" aria-hidden="true"><b>BAD</b><b>VIBEEEES</b></span>
-            <span class="ink"><b>BAD</b><b>VIBEEEES</b></span>
-          </h1>
-        </section>
-
-        <!-- Finale: BAD VIBES in 5 typographic identities -->
+        <!-- Finale: same words, 5 type identities, dry cuts (no logo) -->
         <section class="scene finale" id="finale">
-          <div class="fw fw1"><span>BAD</span><span>VIBES</span></div>
-          <div class="fw fw2"><span>bad vibes.</span><i class="cursor"></i></div>
-          <div class="fw fw3" id="ransom"></div>
-          <div class="fw fw4">
-            <span>BAD VIBES</span><span>BAD VIBES</span><span>BAD VIBES</span>
-            <span class="solid">BAD VIBES</span>
-            <span>BAD VIBES</span><span>BAD VIBES</span><span>BAD VIBES</span>
-          </div>
-          <div class="fw fw5" id="fw5"><span>BAD VIBES</span></div>
-          <!-- Original logo, revealed with the 5th style -->
-          <img class="final-logo" id="finalLogo" src="assets/logo/paranoia-logo-branca-2.png" alt="PARANOIA">
+          <div class="fw fw-typewriter"><span>BAD VIBES</span></div>
+          <div class="fw fw-normal"><span>BAD VIBES</span></div>
+          <div class="fw fw-slab"><span>BAD VIBES</span></div>
+          <div class="fw fw-hand"><span>BAD VIBES</span></div>
+          <div class="fw fw-extended"><span>BAD VIBES</span></div>
         </section>
       </div>
 

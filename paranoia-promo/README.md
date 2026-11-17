@@ -34,15 +34,15 @@ O render captura quadro a quadro a mesma GSAP Timeline (`window.PARANOIA.seek(t)
 |---|---|---|
 | 0.00 | montagem relâmpago: 8 cortes em 1 s (detalhes, whip-pan, card central), logo fixo | cortes secos a cada 3–4 quadros |
 | 1.00 | 01 Fears Grow Old with the Heart | recorte de papel rasgado entra por baixo, é "colado" com fita e assume a tela |
-| 3.95 | 02 Cold Alone Alive | recorte entra pela direita, sobre a cena 01 |
-| 7.15 | **BAD VIBEEEES** #1 | corte seco |
-| 8.80 | 03 Evil Walks Beside Me | faixa de papel horizontal colada sobre o cartaz |
-| 11.90 | 04 Blinding Faith | colagem: 2 fragmentos + recorte principal |
-| 15.25 | **BAD VIBEEEES** #2 | corte seco |
-| 16.95 | 05 Reign in Hell | recorte de canto sobre o cartaz |
-| 20.05 | 06 NMA (Negative Mental Attitude) | faixa vertical caindo de cima |
-| 23.45 | **BAD VIBES** — 5 estilos | cortes secos: Anton → máquina de escrever → carta-resgate → contorno empilhado → Blackletter CS Modula + logo |
-| 30.00 | fim no logo | — |
+| 4.30 | 02 Cold Alone Alive | recorte entra pela direita, sobre a cena 01 |
+| 7.60 | **BAD VIBEEEES** #1 | corte seco: tela branca limpa, máquina de escrever, texto no topo cortado pela borda, digitado 1 letra por quadro |
+| 8.95 | 03 Evil Walks Beside Me | faixa de papel horizontal colada sobre a tela branca |
+| 12.40 | 04 Blinding Faith | colagem: 2 fragmentos + recorte principal |
+| 15.90 | **BAD VIBEEEES** #2 | corte seco |
+| 17.25 | 05 Reign in Hell | recorte de canto sobre a tela branca |
+| 21.00 | 06 NMA (Negative Mental Attitude) | faixa vertical caindo de cima |
+| 25.30 | **BAD VIBES**, sem logo | cortes secos (0,5 s cada): máquina de escrever → normal → slab → manuscrita → estendida |
+| 27.87 | logo sozinho no preto até o fim | corte seco |
 
 Dentro de cada camiseta, seguindo o vídeo de referência: cortes secos de zoom no detalhe da estampa e do adesivo, um quadro de whip-pan (borrão de movimento) e um último punch-in antes da próxima entrada. O logo não se mexe em nenhum desses momentos. Os pontos de foco ficam em `SHIRTS[].focus`, no `js/main.js`.
 
@@ -62,7 +62,7 @@ vendor/gsap.min.js  GSAP 3.12.5
 
 ## Observações
 
-- **Logotipo** — `#logo` fica numa camada própria, centralizado, fora do contêiner que treme; ele nunca é animado, apenas aparece ou some com corte seco (ele some nos cartazes BAD VIBEEEES e no encerramento, onde reaparece no 5º estilo).
+- **Logotipo** — `#logo` fica numa camada própria, centralizado, fora do contêiner que treme; ele nunca é animado, apenas aparece ou some com corte seco (some nas telas BAD VIBEEEES e durante as 5 fontes do encerramento; volta sozinho no final).
 - **Imagens** — são os arquivos Stories originais, sem nenhuma alteração. O preto e branco é um filtro CSS aplicado só na exibição (`.piece .photo img` em `style.css`); para ver as cores originais, basta remover o `grayscale(1)`.
-- **Fonte Blackletter CS Modula** — é uma fonte licenciada e não estava no Drive. O CSS já a utiliza automaticamente quando ela estiver instalada no computador ou quando o arquivo for colocado em `assets/fonts/` como `BlackletterCSModula.woff2`, `.otf` ou `.ttf`. Até lá, entra a fonte reserva UnifrakturCook. Os títulos se ajustam sozinhos à largura, seja qual for a fonte.
+- **Fontes** — Courier Prime (máquina de escrever), Inter (normal), Roboto Slab (slab), Permanent Marker (manuscrita), Syncopate (estendida); todas OFL e incluídas em `assets/fonts/`.
 - **Estampas usadas** — foi usada a "stories 1" de cada ensaio: Cold Alone Alive *roxa* e Reign in Hell *amarela*. Para trocar, basta substituir o arquivo em `assets/stories/`.

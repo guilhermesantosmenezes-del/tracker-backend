@@ -3,38 +3,24 @@
    Palette: strictly black & white.
    ========================================================= */
 
-/* ---------- Fonts ---------- */
-/* Blackletter CS Modula (brand font). It is a licensed font and was not in
-   the Drive: drop the file in assets/fonts/ with one of the names below, or
-   have it installed on the machine — local() picks it up automatically.
-   Fallback: UnifrakturCook (OFL), bundled. */
-@font-face {
-  font-family: "BL Modula";
-  src: local("Blackletter CS Modula"), local("BlackletterCSModula"),
-       local("BlackletterCS-Modula"), local("Blackletter CS Modula Regular"),
-       url("../assets/fonts/BlackletterCSModula.woff2") format("woff2"),
-       url("../assets/fonts/BlackletterCSModula.otf") format("opentype"),
-       url("../assets/fonts/BlackletterCSModula.ttf") format("truetype");
-  font-display: block;
-}
-@font-face { font-family: "UnifrakturCook"; font-weight: 700; src: url("../assets/fonts/unifrakturcook-latin-700-normal.woff2") format("woff2"); font-display: block; }
-@font-face { font-family: "UnifrakturMaguntia"; src: url("../assets/fonts/unifrakturmaguntia-latin-400-normal.woff2") format("woff2"); font-display: block; }
-@font-face { font-family: "Anton"; src: url("../assets/fonts/anton-latin-400-normal.woff2") format("woff2"); font-display: block; }
-@font-face { font-family: "Special Elite"; src: url("../assets/fonts/special-elite-latin-400-normal.woff2") format("woff2"); font-display: block; }
-@font-face { font-family: "Archivo Black"; src: url("../assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); font-display: block; }
-@font-face { font-family: "Rubik Glitch"; src: url("../assets/fonts/rubik-glitch-latin-400-normal.woff2") format("woff2"); font-display: block; }
+/* ---------- Fonts (all OFL, bundled in assets/fonts) ---------- */
+@font-face { font-family: "Courier Prime"; font-weight: 700; src: url("../assets/fonts/courier-prime-latin-700-normal.woff2") format("woff2"); font-display: block; }
+@font-face { font-family: "Inter"; font-weight: 700; src: url("../assets/fonts/inter-latin-700-normal.woff2") format("woff2"); font-display: block; }
+@font-face { font-family: "Roboto Slab"; font-weight: 800; src: url("../assets/fonts/roboto-slab-latin-800-normal.woff2") format("woff2"); font-display: block; }
+@font-face { font-family: "Permanent Marker"; src: url("../assets/fonts/permanent-marker-latin-400-normal.woff2") format("woff2"); font-display: block; }
+@font-face { font-family: "Syncopate"; font-weight: 700; src: url("../assets/fonts/syncopate-latin-700-normal.woff2") format("woff2"); font-display: block; }
 
 :root {
   --black: #000;
   --white: #fff;
   --paper: #f1f1f1;
   --ink: #0a0a0a;
-  --blackletter: "BL Modula", "UnifrakturCook", "UnifrakturMaguntia", serif;
+  --typewriter: "Courier Prime", "Courier New", monospace;
 }
 
 /* ---------- Page / stage ---------- */
 html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
-body { font-family: "Special Elite", monospace; color: #fff; }
+body { font-family: var(--typewriter); color: #fff; }
 
 #viewport { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; }
 #stage {
@@ -74,7 +60,7 @@ body { font-family: "Special Elite", monospace; color: #fff; }
 }
 .piece .label {
   position: absolute; left: 64px; bottom: 120px;
-  font: 400 34px/1 "Special Elite", monospace; letter-spacing: 2px;
+  font: 700 32px/1 var(--typewriter); letter-spacing: 2px;
   color: #fff; background: #000; padding: 12px 18px 10px;
   transform: rotate(-2deg);
 }
@@ -116,67 +102,28 @@ body { font-family: "Special Elite", monospace; color: #fff; }
 }
 
 /* ---------- BAD VIBEEEES interludes ---------- */
-.bv { background: var(--white); }
-.bv-paper { position: absolute; inset: 0; background-color: var(--paper); background-size: 1080px 1920px; }
-.bv-title {
-  position: absolute; inset: 0; margin: 0;
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 700; font-family: var(--blackletter);
+/* Pure white, black typewriter type, first line sliced by the top edge */
+.bv { background: #fff; }
+.bv-type {
+  position: absolute; left: 34px; top: 0; margin: 0;
+  font: 700 220px/0.9 var(--typewriter); color: #000;
+  letter-spacing: -0.04em; white-space: nowrap;
+  transform: translateY(-0.4em);
 }
-.bv-title .ink, .bv-title .ghost {
-  position: absolute; display: flex; flex-direction: column; align-items: center;
-  line-height: .86; text-align: center; white-space: nowrap;
-}
-.bv-title b { display: block; font-weight: 700; }
-.bv-title b:first-child { font-size: 360px; }
-.bv-title b:last-child  { font-size: 230px; }
-.bv-title .ink   { color: var(--ink); filter: url(#distress); }
-.bv-title .ghost { color: rgba(0,0,0,.18); filter: url(#distress); transform: translate(12px, 9px); }
-.bv-alt .bv-title { transform: rotate(-4deg); }
+.bv-type span { display: block; }
 
-.bv-marks { position: absolute; inset: 0; pointer-events: none; }
-.bv-meta {
-  position: absolute; left: 0; right: 0; text-align: center;
-  font: 400 30px/1 "Special Elite", monospace; letter-spacing: 6px; color: #111;
-  opacity: .82;
-}
-.bv-meta.top { top: 150px; }
-.bv-meta.bottom { bottom: 150px; }
-.reg { position: absolute; width: 70px; height: 70px; border: 3px solid #111; border-radius: 50%; opacity: .7; }
-.reg::before, .reg::after { content: ""; position: absolute; background: #111; }
-.reg::before { left: -22px; right: -22px; top: 50%; height: 3px; margin-top: -1.5px; }
-.reg::after  { top: -22px; bottom: -22px; left: 50%; width: 3px; margin-left: -1.5px; }
-.reg.tl { left: 60px; top: 60px; } .reg.tr { right: 60px; top: 60px; }
-.reg.bl { left: 60px; bottom: 60px; } .reg.br { right: 60px; bottom: 60px; }
-
-/* ---------- Finale ---------- */
-.finale { background: var(--black); }
+/* ---------- Finale: BAD VIBES in 5 type identities ---------- */
+.finale { background: #000; }
 .fw {
   position: absolute; inset: 0; visibility: hidden;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  text-align: center; white-space: nowrap;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; white-space: nowrap; text-align: center;
 }
-/* 1 — condensed poster grotesk, stretched */
-.fw1 { font: 400 360px/0.8 "Anton", sans-serif; color: #fff; letter-spacing: -6px; }
-.fw1 span { display: block; transform: scaleY(1.32); }
-.fw1 span + span { margin-top: 120px; }
-/* 2 — typewriter, black on white */
-.fw2 { background: #fff; color: #000; flex-direction: row; font: 400 168px/1 "Special Elite", monospace; letter-spacing: -4px; }
-.fw2 .cursor { display: inline-block; width: 70px; height: 150px; background: #000; margin-left: 14px; }
-/* 3 — ransom note collage */
-.fw3 { gap: 26px; }
-.fw3 .row { display: flex; gap: 10px; align-items: center; }
-.fw3 .chr { display: inline-flex; align-items: center; justify-content: center; padding: 6px 14px; line-height: 1; }
-.fw3 .chr.w { background: #fff; color: #000; }
-.fw3 .chr.b { background: #000; color: #fff; outline: 4px solid #fff; outline-offset: -12px; }
-.fw3 .chr.g { background: #d9d9d9; color: #000; }
-/* 4 — outline echo stack */
-.fw4 { font: 400 132px/1.04 "Archivo Black", sans-serif; color: transparent; -webkit-text-stroke: 3px #fff; letter-spacing: -2px; }
-.fw4 .solid { color: #fff; -webkit-text-stroke: 0; }
-/* 5 — Blackletter CS Modula + original logo */
-.fw5 { font: 700 250px/0.9 var(--blackletter); color: #fff; }
-.fw5 span { filter: url(#distress-soft); }
-.final-logo { position: absolute; inset: 0; margin: auto; width: 640px; height: auto; visibility: hidden; }
+.fw-typewriter { font: 700 150px/1 var(--typewriter); letter-spacing: -0.02em; }
+.fw-normal     { font: 700 150px/1 "Inter", sans-serif; letter-spacing: -0.03em; }
+.fw-slab       { font: 800 150px/1 "Roboto Slab", serif; letter-spacing: -0.01em; }
+.fw-hand       { font: 400 160px/1 "Permanent Marker", cursive; }
+.fw-extended   { font: 700 110px/1 "Syncopate", sans-serif; letter-spacing: 0.02em; }
 
 /* ---------- Finishing ---------- */
 #grain { pointer-events: none; z-index: 60; background-size: 1080px 1920px; mix-blend-mode: overlay; opacity: .5; }
@@ -192,3 +139,7 @@ body { font-family: "Special Elite", monospace; color: #fff; }
 #hud .hint { opacity: .6; }
 body.render #hud { display: none; }
 @media (max-width: 600px) { #hud .hint { display: none; } }
+
+/* typed characters / fitted words */
+.bv-type .c { font-style: normal; }
+.fw span { display: inline-block; }
