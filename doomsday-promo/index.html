@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PARANOIA — Doomsday</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <filter id="whip" x="-10%" y="0" width="120%" height="100%"><feGaussianBlur stdDeviation="70 2"/></filter>
+      <filter id="whip-v" x="0" y="-10%" width="100%" height="120%"><feGaussianBlur stdDeviation="2 80"/></filter>
+    </defs>
+  </svg>
+
+  <div id="viewport">
+    <div id="stage">
+      <div id="shake" class="layer">
+        <div id="scenes" class="layer"><!-- photo scenes built by js/main.js --></div>
+
+        <!-- opening flash montage -->
+        <section class="scene intro" id="intro"></section>
+
+        <!-- three.js hero scenes (vertigo, corridor, abyss) -->
+        <section class="scene hero" id="hero"><canvas id="gl" width="1080" height="1920"></canvas></section>
+
+        <!-- doomsday white cards — reference beats: hand lettering -> zoom -> giant brush -->
+        <section class="scene bv" id="bv1">
+          <div class="bv-a"><span class="l1">dooms</span><span class="l2">day</span><span class="l3">make a deal.</span></div>
+          <div class="bv-c"><span>dooms</span><span>day<em>*</em></span></div>
+        </section>
+        <section class="scene bv" id="bv2">
+          <div class="bv-a"><span class="l1">dooms</span><span class="l2">day</span><span class="l3">with the devil.</span></div>
+          <div class="bv-c"><span>dooms</span><span>day<em>*</em></span></div>
+        </section>
+
+        <!-- finale: doomsday in 5 type identities, then the logo alone -->
+        <section class="scene finale" id="finale">
+          <div class="fw fw-typewriter"><span>doomsday</span></div>
+          <div class="fw fw-normal"><span>doomsday</span></div>
+          <div class="fw fw-slab"><span>doomsday</span></div>
+          <div class="fw fw-hand"><span>doomsday</span></div>
+          <div class="fw fw-extended"><span>doomsday</span></div>
+        </section>
+      </div>
+
+      <!-- fixed logo: centred, never animated, only cut on/off -->
+      <img id="logo" src="assets/logo/paranoia-logo-branca-2.png" alt="PARANOIA">
+
+      <div id="haze" class="layer"></div>
+      <div id="grain" class="layer"></div>
+      <div id="flash" class="layer"></div>
+    </div>
+  </div>
+
+  <div id="hud">
+    <button id="btnPlay" type="button">▶ PLAY</button>
+    <span id="clock">00.00 / 30.00</span>
+    <span class="hint">espaço: play/pause · R: reiniciar · ←/→: ±1s</span>
+  </div>
+
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/three.min.js"></script>
+  <script src="js/fx.js"></script>
+  <script src="js/three-scenes.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+/* =========================================================
+   PARANOIA — DOOMSDAY · 30s Stories (1080 × 1920)
+
+   DESIGN DNA — colour noir (not black & white)
+     ink    #06070a  deep blue-black, the void
+     smoke  #14181d  haze, fog
+     steel  #5e6b73  cold shadows
+     bone   #e9dcc3  the drawing's bone / paper, warm highlights
+     ember  #e4532b  the art's orange-red flames — the only hot colour
+     blood  #8e1b12  ember in shadow
+   Motion: hard cuts, paper cut-outs, zoom-through cuts, vertigo
+   (dolly zoom), punch-in crops; type cuts every 6 frames.
+   ========================================================= */
+
+@font-face { font-family: "Sedgwick Ave Display"; src: url("../assets/fonts/sedgwick-ave-display-latin-400-normal.woff2") format("woff2"); font-display: block; }
+@font-face { font-family: "Permanent Marker"; src: url("../assets/fonts/permanent-marker-latin-400-normal.woff2") format("woff2"); font-display: block; }
+@font-face { font-family: "Caveat"; font-weight: 700; src: url("../assets/fonts/caveat-latin-700-normal.woff2") format("woff2"); font-display: block; }
+@font-face { font-family: "Archivo"; font-weight: 100 900; font-stretch: 62% 125%; src: url("../assets/fonts/archivo-variable-latin.woff2") format("woff2"); font-display: block; }
+@font-face { font-family: "Courier Prime"; font-weight: 700; src: url("../assets/fonts/courier-prime-latin-700-normal.woff2") format("woff2"); font-display: block; }
+@font-face { font-family: "Inter"; font-weight: 700; src: url("../assets/fonts/inter-latin-700-normal.woff2") format("woff2"); font-display: block; }
+@font-face { font-family: "Roboto Slab"; font-weight: 800; src: url("../assets/fonts/roboto-slab-latin-800-normal.woff2") format("woff2"); font-display: block; }
+
+:root {
+  --ink: #06070a;
+  --smoke: #14181d;
+  --steel: #5e6b73;
+  --bone: #e9dcc3;
+  --ember: #e4532b;
+  --blood: #8e1b12;
+  --typewriter: "Courier Prime", "Courier New", monospace;
+}
+
+html, body { margin: 0; height: 100%; background: var(--ink); overflow: hidden; }
+body { font-family: var(--typewriter); color: var(--bone); }
+
+#viewport { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; }
+#stage { position: relative; flex: none; width: 1080px; height: 1920px; overflow: hidden; background: var(--ink); transform-origin: center center; }
+.layer { position: absolute; inset: 0; }
+.scene { position: absolute; inset: 0; visibility: hidden; overflow: hidden; }
+
+/* ---------- photo scenes: paper cut-outs ---------- */
+.piece { position: absolute; inset: 0; will-change: transform; }
+.piece .paper { position: absolute; inset: 0; background-color: var(--bone); background-size: 1080px 1920px; background-blend-mode: multiply; }
+.piece .photo { position: absolute; inset: 0; overflow: hidden; }
+.piece .photo img { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; transform-origin: 50% 50%; will-change: transform; }
+.piece .photo img.whip { filter: url(#whip); }
+.piece .shade { position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 58% 17% at 50% 50%, rgba(6,7,10,.45) 0%, rgba(6,7,10,.18) 55%, rgba(6,7,10,0) 100%); }
+.piece .dirt { position: absolute; inset: 0; pointer-events: none; background-size: 1080px 1920px; mix-blend-mode: multiply; opacity: .35; }
+.piece .tape { position: absolute; width: 230px; height: 66px; background: rgba(233,220,195,.72); box-shadow: 0 2px 3px rgba(0,0,0,.35);
+  clip-path: polygon(0 8%, 4% 0, 9% 10%, 14% 2%, 20% 9%, 100% 0, 97% 18%, 100% 35%, 96% 52%, 100% 70%, 97% 86%, 100% 100%, 0 100%, 3% 82%, 0 64%, 4% 47%, 0 30%); }
+
+/* ---------- opening montage ---------- */
+.intro { background: var(--ink); }
+.intro .shot { position: absolute; inset: 0; visibility: hidden; overflow: hidden; }
+.intro .shot img { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+.intro .shot.whip img { filter: url(#whip); }
+.intro .shot.whip-v img { filter: url(#whip-v); }
+.intro .shot.card { background: var(--ink); }
+.intro .shot.card .frame { position: absolute; left: 330px; top: 640px; width: 420px; height: 640px; overflow: hidden; outline: 6px solid var(--bone); outline-offset: -1px; }
+.intro .shot.card .frame img { left: -330px; top: -640px; }
+
+/* ---------- three.js hero ---------- */
+.hero { background: var(--ink); }
+.hero canvas { position: absolute; inset: 0; width: 1080px; height: 1920px; display: block; }
+
+/* ---------- fixed logo ---------- */
+#logo { position: absolute; inset: 0; margin: auto; width: 600px; height: auto; visibility: hidden; pointer-events: none; z-index: 50; }
+
+/* ---------- doomsday white cards (reference beats) ---------- */
+.bv { background: #fff; }
+.bv-a { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; font: 400 160px/1 "Sedgwick Ave Display", cursive; color: #111; }
+.bv-a span { position: absolute; white-space: nowrap; }
+.bv-a .l1 { left: 470px; top: 880px; }
+.bv-a .l2 { left: 300px; top: 1180px; }
+.bv-a .l3 { left: 200px; top: 1460px; font-size: 120px; }
+.bv-c { position: absolute; left: -110px; top: -210px; visibility: hidden; font: 400 720px/0.78 "Permanent Marker", cursive; color: #0b0b0b; -webkit-text-stroke: 12px #0b0b0b; white-space: nowrap; }
+.bv-c span { display: block; transform: scaleX(.7); transform-origin: 0 50%; }
+.bv-c em { font-style: normal; color: var(--ember); -webkit-text-stroke: 12px var(--ember); }
+
+/* ---------- finale ---------- */
+.finale { background: var(--ink); }
+.fw { position: absolute; inset: 0; visibility: hidden; display: flex; align-items: center; justify-content: center; color: var(--bone); white-space: nowrap; text-align: center; }
+.fw span { display: inline-block; }
+.fw-typewriter { font: 700 150px/1 var(--typewriter); letter-spacing: -0.02em; }
+.fw-normal     { font: 700 150px/1 "Inter", sans-serif; letter-spacing: -0.03em; }
+.fw-slab       { font: 800 150px/1 "Roboto Slab", serif; letter-spacing: -0.01em; color: var(--ember); }
+.fw-hand       { font: 700 200px/1 "Caveat", cursive; }
+.fw-extended   { font: 800 150px/1 "Archivo", sans-serif; font-stretch: 125%; letter-spacing: 0.01em; }
+
+/* ---------- finishing ---------- */
+/* noir haze: cool blue shadows on the edges, a warm ember breath at the bottom */
+#haze { pointer-events: none; z-index: 55; mix-blend-mode: soft-light; opacity: .55;
+  background: radial-gradient(ellipse 90% 60% at 50% 105%, rgba(228,83,43,.55), rgba(228,83,43,0) 70%),
+              radial-gradient(ellipse 80% 70% at 50% 45%, rgba(0,0,0,0), rgba(20,40,70,.9) 100%); }
+#grain { pointer-events: none; z-index: 60; background-size: 1080px 1920px; mix-blend-mode: overlay; opacity: .45; }
+#flash { pointer-events: none; z-index: 70; background: var(--bone); opacity: 0; }
+
+#hud { position: fixed; left: 12px; bottom: 12px; z-index: 100; display: flex; gap: 12px; align-items: center; font: 12px/1 ui-monospace, monospace; color: #fff; opacity: .75; }
+#hud button { font: inherit; background: var(--bone); color: #000; border: 0; padding: 8px 12px; cursor: pointer; }
+#hud .hint { opacity: .6; }
+body.render #hud { display: none; }
+@media (max-width: 600px) { #hud .hint { display: none; } }
