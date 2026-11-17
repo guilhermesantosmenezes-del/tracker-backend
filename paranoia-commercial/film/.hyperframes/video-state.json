@@ -1,7 +1,7 @@
 {
   "version": 1,
   "historyId": "680065c6-1d60-43f5-9d6e-99e230850a32",
-  "currentRevision": null,
+  "currentRevision": "10276827-4027-407c-8171-fca8318f514a",
   "pendingChanges": false,
   "files": {
     "AGENTS.md": {
@@ -65,8 +65,8 @@
       "content": "/root/.cache/hyperframes/history/680065c6-1d60-43f5-9d6e-99e230850a32/blobs/8a/8a5f7249903b54d30f79f708699d2fed2d6a1d0741a4cd41377d1f01bb5a2271"
     },
     "gen.py": {
-      "hash": "d60f72ea2eae97c2d08818b8a7cfecfbc082929a414e7480ba6c5c0c309f1ac1",
-      "content": "/root/.cache/hyperframes/history/680065c6-1d60-43f5-9d6e-99e230850a32/blobs/d6/d60f72ea2eae97c2d08818b8a7cfecfbc082929a414e7480ba6c5c0c309f1ac1"
+      "hash": "51d6b5b9905227d6270e2e3ffeb004258881b44c9785b8759bc00289f94ff021",
+      "content": "/root/.cache/hyperframes/history/680065c6-1d60-43f5-9d6e-99e230850a32/blobs/51/51d6b5b9905227d6270e2e3ffeb004258881b44c9785b8759bc00289f94ff021"
     },
     "grade_attr.txt": {
       "hash": "46fdf13cfd9c0d18dd5f0d030249e5a614d74a385e743d8967fc4e52278ad598",
@@ -81,8 +81,8 @@
       "content": "/root/.cache/hyperframes/history/680065c6-1d60-43f5-9d6e-99e230850a32/blobs/53/53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50"
     },
     "index.html": {
-      "hash": "0fc7816d07bf202e27b6649b779612bdd40ee00e75f5fe3a281f8b2cc769fc15",
-      "content": "/root/.cache/hyperframes/history/680065c6-1d60-43f5-9d6e-99e230850a32/blobs/0f/0fc7816d07bf202e27b6649b779612bdd40ee00e75f5fe3a281f8b2cc769fc15"
+      "hash": "429589e7832240d017d9f8ff7a04873725aec5b4ca4da11bf2533a03249fa246",
+      "content": "/root/.cache/hyperframes/history/680065c6-1d60-43f5-9d6e-99e230850a32/blobs/42/429589e7832240d017d9f8ff7a04873725aec5b4ca4da11bf2533a03249fa246"
     },
     "meta.json": {
       "hash": "367bf68de609fee717a0d02cb7754dfecef3d77d95eda0ae4cbbf379c902929c",
@@ -119,9 +119,148 @@
     "assets/img/print_full.png": {
       "hash": "210f30d0cbaadc0b09a9dca59b40c7bd67d399afc0f6cdc23536434e4c337592",
       "content": "/root/.cache/hyperframes/history/680065c6-1d60-43f5-9d6e-99e230850a32/blobs/21/210f30d0cbaadc0b09a9dca59b40c7bd67d399afc0f6cdc23536434e4c337592"
+    },
+    "font_metrics.json": {
+      "hash": "17f47dcfdf3d127b4141df504b5603a1bcf869dd8842feb39b5d7521b5547667",
+      "content": "/root/.cache/hyperframes/history/680065c6-1d60-43f5-9d6e-99e230850a32/blobs/17/17f47dcfdf3d127b4141df504b5603a1bcf869dd8842feb39b5d7521b5547667"
+    },
+    "tools_patch1.py": {
+      "hash": "f4228f52f1e95898eebfc4de2a37e43f89b7d3370d45c6e3b16aa5eba853fd81",
+      "content": "/root/.cache/hyperframes/history/680065c6-1d60-43f5-9d6e-99e230850a32/blobs/f4/f4228f52f1e95898eebfc4de2a37e43f89b7d3370d45c6e3b16aa5eba853fd81"
+    },
+    "tools_patch2.py": {
+      "hash": "3a749a5479347268359151c9a11d4c356214e60039023819d05579e001ac81f1",
+      "content": "/root/.cache/hyperframes/history/680065c6-1d60-43f5-9d6e-99e230850a32/blobs/3a/3a749a5479347268359151c9a11d4c356214e60039023819d05579e001ac81f1"
     }
   },
-  "revisions": {},
+  "revisions": {
+    "ff4103e4-28e0-4bf2-912d-f90af953ce8a": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1794938231770,
+      "endedAt": 1794938231779,
+      "files": {
+        "font_metrics.json": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/680065c6-1d60-43f5-9d6e-99e230850a32/blobs/17/17f47dcfdf3d127b4141df504b5603a1bcf869dd8842feb39b5d7521b5547667"
+        },
+        "gen.py": {
+          "before": "/root/.cache/hyperframes/history/680065c6-1d60-43f5-9d6e-99e230850a32/blobs/d6/d60f72ea2eae97c2d08818b8a7cfecfbc082929a414e7480ba6c5c0c309f1ac1",
+          "after": "/root/.cache/hyperframes/history/680065c6-1d60-43f5-9d6e-99e230850a32/blobs/90/90278f0d9a7ccedd6738867d575707a90879e52e074a98dec9f20eae0c23c091"
+        },
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/680065c6-1d60-43f5-9d6e-99e230850a32/blobs/0f/0fc7816d07bf202e27b6649b779612bdd40ee00e75f5fe3a281f8b2cc769fc15",
+          "after": "/root/.cache/hyperframes/history/680065c6-1d60-43f5-9d6e-99e230850a32/blobs/91/9169273b7b84f8842d4d74c8df5048f32e7b3cb672dcb299a91632ec5b7a389f"
+        },
+        "tools_patch1.py": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/680065c6-1d60-43f5-9d6e-99e230850a32/blobs/f4/f4228f52f1e95898eebfc4de2a37e43f89b7d3370d45c6e3b16aa5eba853fd81"
+        }
+      }
+    },
+    "86a47ffc-1aaa-4bf8-b641-91b3ce2b174e": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1794938298625,
+      "endedAt": 1794938298633,
+      "files": {
+        "gen.py": {
+          "before": "/root/.cache/hyperframes/history/680065c6-1d60-43f5-9d6e-99e230850a32/blobs/90/90278f0d9a7ccedd6738867d575707a90879e52e074a98dec9f20eae0c23c091",
+          "after": "/root/.cache/hyperframes/history/680065c6-1d60-43f5-9d6e-99e230850a32/blobs/3a/3aea7e8c51b7f29d9fd3908c5326035d87a2232cab4bf9d2315c32c97c679ede"
+        },
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/680065c6-1d60-43f5-9d6e-99e230850a32/blobs/91/9169273b7b84f8842d4d74c8df5048f32e7b3cb672dcb299a91632ec5b7a389f",
+          "after": "/root/.cache/hyperframes/history/680065c6-1d60-43f5-9d6e-99e230850a32/blobs/14/143fe94ac027d710f6b8b15cc7dedeeceb4afeb71546b144388a1beb251381e7"
+        },
+        "tools_patch2.py": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/680065c6-1d60-43f5-9d6e-99e230850a32/blobs/3a/3a749a5479347268359151c9a11d4c356214e60039023819d05579e001ac81f1"
+        }
+      }
+    },
+    "14beca11-faa7-4297-9fa9-2750f984c004": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1794938360421,
+      "endedAt": 1794938360429,
+      "files": {
+        "gen.py": {
+          "before": "/root/.cache/hyperframes/history/680065c6-1d60-43f5-9d6e-99e230850a32/blobs/3a/3aea7e8c51b7f29d9fd3908c5326035d87a2232cab4bf9d2315c32c97c679ede",
+          "after": "/root/.cache/hyperframes/history/680065c6-1d60-43f5-9d6e-99e230850a32/blobs/d2/d25cc26eae0de52f4d72c6a06a0cbcec3e9c6f907155e398432af33295de9b74"
+        },
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/680065c6-1d60-43f5-9d6e-99e230850a32/blobs/14/143fe94ac027d710f6b8b15cc7dedeeceb4afeb71546b144388a1beb251381e7",
+          "after": "/root/.cache/hyperframes/history/680065c6-1d60-43f5-9d6e-99e230850a32/blobs/55/55a49499bd457a73fba1cd2dc1440966e9cda071431bfb931d80863e5a20b02e"
+        }
+      }
+    },
+    "f2d25a14-ea2d-428e-add3-51cb73b2ded5": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1794938381738,
+      "endedAt": 1794938381750,
+      "files": {
+        "gen.py": {
+          "before": "/root/.cache/hyperframes/history/680065c6-1d60-43f5-9d6e-99e230850a32/blobs/d2/d25cc26eae0de52f4d72c6a06a0cbcec3e9c6f907155e398432af33295de9b74",
+          "after": "/root/.cache/hyperframes/history/680065c6-1d60-43f5-9d6e-99e230850a32/blobs/88/88ac788e0467783945eb8d4869b8e1c2a692433c3f3b8ede3b913452d76dec90"
+        },
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/680065c6-1d60-43f5-9d6e-99e230850a32/blobs/55/55a49499bd457a73fba1cd2dc1440966e9cda071431bfb931d80863e5a20b02e",
+          "after": "/root/.cache/hyperframes/history/680065c6-1d60-43f5-9d6e-99e230850a32/blobs/58/58fe171e8625c925c60d63e8b72b0cef9c54e623499c7feb970f5e1df7e2e621"
+        }
+      }
+    },
+    "1eb14a98-8c4f-455e-b4a9-761cff44f800": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1794938398991,
+      "endedAt": 1794938398998,
+      "files": {
+        "gen.py": {
+          "before": "/root/.cache/hyperframes/history/680065c6-1d60-43f5-9d6e-99e230850a32/blobs/88/88ac788e0467783945eb8d4869b8e1c2a692433c3f3b8ede3b913452d76dec90",
+          "after": "/root/.cache/hyperframes/history/680065c6-1d60-43f5-9d6e-99e230850a32/blobs/ab/ab47d52831370a4959e311067b64416fb79923e7943ad137f5457430b77fba46"
+        },
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/680065c6-1d60-43f5-9d6e-99e230850a32/blobs/58/58fe171e8625c925c60d63e8b72b0cef9c54e623499c7feb970f5e1df7e2e621",
+          "after": "/root/.cache/hyperframes/history/680065c6-1d60-43f5-9d6e-99e230850a32/blobs/90/9020189d00be4d0ab804d924e715a1a3230ec87e33c0868610f8bbe938911e32"
+        }
+      }
+    },
+    "10276827-4027-407c-8171-fca8318f514a": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1794938415913,
+      "endedAt": 1794938415920,
+      "files": {
+        "gen.py": {
+          "before": "/root/.cache/hyperframes/history/680065c6-1d60-43f5-9d6e-99e230850a32/blobs/ab/ab47d52831370a4959e311067b64416fb79923e7943ad137f5457430b77fba46",
+          "after": "/root/.cache/hyperframes/history/680065c6-1d60-43f5-9d6e-99e230850a32/blobs/51/51d6b5b9905227d6270e2e3ffeb004258881b44c9785b8759bc00289f94ff021"
+        },
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/680065c6-1d60-43f5-9d6e-99e230850a32/blobs/90/9020189d00be4d0ab804d924e715a1a3230ec87e33c0868610f8bbe938911e32",
+          "after": "/root/.cache/hyperframes/history/680065c6-1d60-43f5-9d6e-99e230850a32/blobs/42/429589e7832240d017d9f8ff7a04873725aec5b4ca4da11bf2533a03249fa246"
+        }
+      }
+    }
+  },
   "checks": {
     "latest": null,
     "revisions": {},
@@ -129,10 +268,803 @@
   },
   "snapshots": {
     "latest": {
-      "revision": null,
-      "id": "9b6aff99-36d0-4790-ab48-2e32c244d9f8-23"
+      "revision": "10276827-4027-407c-8171-fca8318f514a",
+      "id": "568e912c-cf18-4dbb-8300-35c4ab419edf-2"
     },
-    "revisions": {},
+    "revisions": {
+      "ff4103e4-28e0-4bf2-912d-f90af953ce8a": [
+        {
+          "scope": "full",
+          "id": "a4799c47-8e14-4533-ab96-eb3d0b966158-0",
+          "image": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/snapshots/c9d59d65-fdf9-48c9-9ce1-4d4b1d863767/frame-00-at-1.2s.png",
+          "time": 1.2,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794938272975,
+          "contentHash": "b132211cc808d5cced82ca3fdda42821f674e52208c42f16771d482ace706945",
+          "revision": "ff4103e4-28e0-4bf2-912d-f90af953ce8a",
+          "inputFingerprint": "a5b9d68ddf532b1465677fe346a2686f27bab977e2f55004bbe490412c454e7a",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "a4799c47-8e14-4533-ab96-eb3d0b966158-1",
+          "image": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/snapshots/c9d59d65-fdf9-48c9-9ce1-4d4b1d863767/frame-01-at-2.4s.png",
+          "time": 2.4,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794938272975,
+          "contentHash": "285f158be1cb67acce88608689a008ae11e7a8d1b525aa5e06c87684f58f4eba",
+          "revision": "ff4103e4-28e0-4bf2-912d-f90af953ce8a",
+          "inputFingerprint": "a5b9d68ddf532b1465677fe346a2686f27bab977e2f55004bbe490412c454e7a",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "a4799c47-8e14-4533-ab96-eb3d0b966158-2",
+          "image": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/snapshots/c9d59d65-fdf9-48c9-9ce1-4d4b1d863767/frame-02-at-5.4s.png",
+          "time": 5.4,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794938272975,
+          "contentHash": "d294eeff5ad07935b8f9da482c62ccf91aa640395da369933246bf056a350e8d",
+          "revision": "ff4103e4-28e0-4bf2-912d-f90af953ce8a",
+          "inputFingerprint": "a5b9d68ddf532b1465677fe346a2686f27bab977e2f55004bbe490412c454e7a",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "a4799c47-8e14-4533-ab96-eb3d0b966158-3",
+          "image": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/snapshots/c9d59d65-fdf9-48c9-9ce1-4d4b1d863767/frame-03-at-6.4s.png",
+          "time": 6.4,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794938272975,
+          "contentHash": "18c593fac543548d5c2c75983b1bfcaf03922b8a61413b66b075a92297595c52",
+          "revision": "ff4103e4-28e0-4bf2-912d-f90af953ce8a",
+          "inputFingerprint": "a5b9d68ddf532b1465677fe346a2686f27bab977e2f55004bbe490412c454e7a",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "a4799c47-8e14-4533-ab96-eb3d0b966158-4",
+          "image": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/snapshots/c9d59d65-fdf9-48c9-9ce1-4d4b1d863767/frame-04-at-9.5s.png",
+          "time": 9.5,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794938272975,
+          "contentHash": "f5ce88b00bcb5f2e4bdea02aa60de62520a0b921d1e96a19d310b2c715187390",
+          "revision": "ff4103e4-28e0-4bf2-912d-f90af953ce8a",
+          "inputFingerprint": "a5b9d68ddf532b1465677fe346a2686f27bab977e2f55004bbe490412c454e7a",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "a4799c47-8e14-4533-ab96-eb3d0b966158-5",
+          "image": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/snapshots/c9d59d65-fdf9-48c9-9ce1-4d4b1d863767/frame-05-at-10.4s.png",
+          "time": 10.4,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794938272975,
+          "contentHash": "cd25f4cedb52c9cf25aa73b8ad7567ec3582b2ea09117f368922cc9076f5ae75",
+          "revision": "ff4103e4-28e0-4bf2-912d-f90af953ce8a",
+          "inputFingerprint": "a5b9d68ddf532b1465677fe346a2686f27bab977e2f55004bbe490412c454e7a",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "a4799c47-8e14-4533-ab96-eb3d0b966158-6",
+          "image": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/snapshots/c9d59d65-fdf9-48c9-9ce1-4d4b1d863767/frame-06-at-13.5s.png",
+          "time": 13.5,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794938272975,
+          "contentHash": "27b62de547b61cf73fd4d2d07eb3d453d69b7caa627207c8b4cf0c25e9288ff0",
+          "revision": "ff4103e4-28e0-4bf2-912d-f90af953ce8a",
+          "inputFingerprint": "a5b9d68ddf532b1465677fe346a2686f27bab977e2f55004bbe490412c454e7a",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "a4799c47-8e14-4533-ab96-eb3d0b966158-7",
+          "image": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/snapshots/c9d59d65-fdf9-48c9-9ce1-4d4b1d863767/frame-07-at-14.5s.png",
+          "time": 14.5,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794938272975,
+          "contentHash": "fc7241b8515657797efb43dcf2756abb0761c521606d1993d2981a39c53374a8",
+          "revision": "ff4103e4-28e0-4bf2-912d-f90af953ce8a",
+          "inputFingerprint": "a5b9d68ddf532b1465677fe346a2686f27bab977e2f55004bbe490412c454e7a",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "a4799c47-8e14-4533-ab96-eb3d0b966158-8",
+          "image": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/snapshots/c9d59d65-fdf9-48c9-9ce1-4d4b1d863767/frame-08-at-15.5s.png",
+          "time": 15.5,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794938272976,
+          "contentHash": "5620891a8b67967dffbb1c7447946abcd5cd069da2e870f0d1d45b11b3652213",
+          "revision": "ff4103e4-28e0-4bf2-912d-f90af953ce8a",
+          "inputFingerprint": "a5b9d68ddf532b1465677fe346a2686f27bab977e2f55004bbe490412c454e7a",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "a4799c47-8e14-4533-ab96-eb3d0b966158-9",
+          "image": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/snapshots/c9d59d65-fdf9-48c9-9ce1-4d4b1d863767/frame-09-at-16.5s.png",
+          "time": 16.5,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794938272976,
+          "contentHash": "22cb0756850953d7951979360f80e7b0bbfef23e0486d67945021834665f900c",
+          "revision": "ff4103e4-28e0-4bf2-912d-f90af953ce8a",
+          "inputFingerprint": "a5b9d68ddf532b1465677fe346a2686f27bab977e2f55004bbe490412c454e7a",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "a4799c47-8e14-4533-ab96-eb3d0b966158-10",
+          "image": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/snapshots/c9d59d65-fdf9-48c9-9ce1-4d4b1d863767/frame-10-at-17.5s.png",
+          "time": 17.5,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794938272976,
+          "contentHash": "9c5a9ca5b3c286771578e3bc1c320edffbaa677bc699c3b66f947c18bb97ee50",
+          "revision": "ff4103e4-28e0-4bf2-912d-f90af953ce8a",
+          "inputFingerprint": "a5b9d68ddf532b1465677fe346a2686f27bab977e2f55004bbe490412c454e7a",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "a4799c47-8e14-4533-ab96-eb3d0b966158-11",
+          "image": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/snapshots/c9d59d65-fdf9-48c9-9ce1-4d4b1d863767/frame-11-at-19.6s.png",
+          "time": 19.6,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794938272976,
+          "contentHash": "fcc683df636679ad49136d746f42379328e91cdfb1030d085b4860fdd2da4ac7",
+          "revision": "ff4103e4-28e0-4bf2-912d-f90af953ce8a",
+          "inputFingerprint": "a5b9d68ddf532b1465677fe346a2686f27bab977e2f55004bbe490412c454e7a",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "a4799c47-8e14-4533-ab96-eb3d0b966158-12",
+          "image": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/snapshots/c9d59d65-fdf9-48c9-9ce1-4d4b1d863767/frame-12-at-23.5s.png",
+          "time": 23.5,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794938272976,
+          "contentHash": "bbf0957a7da0f0b9cd694655cd981b6a6f3600d6c247ae1ea40e13acff28388a",
+          "revision": "ff4103e4-28e0-4bf2-912d-f90af953ce8a",
+          "inputFingerprint": "a5b9d68ddf532b1465677fe346a2686f27bab977e2f55004bbe490412c454e7a",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "a4799c47-8e14-4533-ab96-eb3d0b966158-13",
+          "image": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/snapshots/c9d59d65-fdf9-48c9-9ce1-4d4b1d863767/frame-13-at-25.8s.png",
+          "time": 25.8,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794938272976,
+          "contentHash": "f978e05db30354d229d3ce7810c3b96dd0a50b90f8a0ff0e6a39bbdc22bb4071",
+          "revision": "ff4103e4-28e0-4bf2-912d-f90af953ce8a",
+          "inputFingerprint": "a5b9d68ddf532b1465677fe346a2686f27bab977e2f55004bbe490412c454e7a",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "a4799c47-8e14-4533-ab96-eb3d0b966158-14",
+          "image": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/snapshots/c9d59d65-fdf9-48c9-9ce1-4d4b1d863767/frame-14-at-28s.png",
+          "time": 28,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794938272976,
+          "contentHash": "81bd1c62b88e522725cdd0ac5a7cba3f453e601ccbcce746bd97942780793209",
+          "revision": "ff4103e4-28e0-4bf2-912d-f90af953ce8a",
+          "inputFingerprint": "a5b9d68ddf532b1465677fe346a2686f27bab977e2f55004bbe490412c454e7a",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "a4799c47-8e14-4533-ab96-eb3d0b966158-15",
+          "image": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/snapshots/c9d59d65-fdf9-48c9-9ce1-4d4b1d863767/frame-15-at-29.75s.png",
+          "time": 29.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794938272976,
+          "contentHash": "e7f4a352925f179fca689da9e17ff713515fd58b0765e337ae9a3723dfc4c494",
+          "revision": "ff4103e4-28e0-4bf2-912d-f90af953ce8a",
+          "inputFingerprint": "a5b9d68ddf532b1465677fe346a2686f27bab977e2f55004bbe490412c454e7a",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ],
+      "86a47ffc-1aaa-4bf8-b641-91b3ce2b174e": [
+        {
+          "scope": "full",
+          "id": "5300a655-a980-4606-924e-a0793dbcb547-0",
+          "image": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/snapshots/8183aada-66c6-4390-aa69-b10862d05a1e/frame-00-at-2.4s.png",
+          "time": 2.4,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794938325344,
+          "contentHash": "ace24afaf349a2b78221cfe9b0e6c07ccd185acc5a19920d9c4c4415689e0b6f",
+          "revision": "86a47ffc-1aaa-4bf8-b641-91b3ce2b174e",
+          "inputFingerprint": "d3bd565faa20f41077cec8af243c5092937f5e2f93ade59347351fb44f107b2c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "5300a655-a980-4606-924e-a0793dbcb547-1",
+          "image": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/snapshots/8183aada-66c6-4390-aa69-b10862d05a1e/frame-01-at-5.6s.png",
+          "time": 5.6,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794938325344,
+          "contentHash": "cfd055ad26f04700f578afc182168622fda695319b094fc91ab6ad7508ee625e",
+          "revision": "86a47ffc-1aaa-4bf8-b641-91b3ce2b174e",
+          "inputFingerprint": "d3bd565faa20f41077cec8af243c5092937f5e2f93ade59347351fb44f107b2c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "5300a655-a980-4606-924e-a0793dbcb547-2",
+          "image": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/snapshots/8183aada-66c6-4390-aa69-b10862d05a1e/frame-02-at-9.6s.png",
+          "time": 9.6,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794938325345,
+          "contentHash": "ddca82aa196f68062bb6f3269f42b912f49ef56eaf936e7655373fe4646121d8",
+          "revision": "86a47ffc-1aaa-4bf8-b641-91b3ce2b174e",
+          "inputFingerprint": "d3bd565faa20f41077cec8af243c5092937f5e2f93ade59347351fb44f107b2c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "5300a655-a980-4606-924e-a0793dbcb547-3",
+          "image": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/snapshots/8183aada-66c6-4390-aa69-b10862d05a1e/frame-03-at-13.6s.png",
+          "time": 13.6,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794938325345,
+          "contentHash": "f9f09b186b2fb138b8db9f8c720158f9ff9782cc0029ed0a7eb3e3533697a913",
+          "revision": "86a47ffc-1aaa-4bf8-b641-91b3ce2b174e",
+          "inputFingerprint": "d3bd565faa20f41077cec8af243c5092937f5e2f93ade59347351fb44f107b2c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "5300a655-a980-4606-924e-a0793dbcb547-4",
+          "image": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/snapshots/8183aada-66c6-4390-aa69-b10862d05a1e/frame-04-at-14.6s.png",
+          "time": 14.6,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794938325345,
+          "contentHash": "4986b1e3095b6b9932678185084ea8de2d5137b5031831dfc95fb80542bb76e3",
+          "revision": "86a47ffc-1aaa-4bf8-b641-91b3ce2b174e",
+          "inputFingerprint": "d3bd565faa20f41077cec8af243c5092937f5e2f93ade59347351fb44f107b2c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "5300a655-a980-4606-924e-a0793dbcb547-5",
+          "image": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/snapshots/8183aada-66c6-4390-aa69-b10862d05a1e/frame-05-at-15.6s.png",
+          "time": 15.6,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794938325345,
+          "contentHash": "034ed55463645d6893ce452d3f8fd6f26d3f7dad7247670f09b6404086cb4fc8",
+          "revision": "86a47ffc-1aaa-4bf8-b641-91b3ce2b174e",
+          "inputFingerprint": "d3bd565faa20f41077cec8af243c5092937f5e2f93ade59347351fb44f107b2c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "5300a655-a980-4606-924e-a0793dbcb547-6",
+          "image": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/snapshots/8183aada-66c6-4390-aa69-b10862d05a1e/frame-06-at-16.6s.png",
+          "time": 16.6,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794938325345,
+          "contentHash": "08153f3ee05b9292c4bd9a7c1ea27fa81114eebed557c05f8cf63fffc34a2242",
+          "revision": "86a47ffc-1aaa-4bf8-b641-91b3ce2b174e",
+          "inputFingerprint": "d3bd565faa20f41077cec8af243c5092937f5e2f93ade59347351fb44f107b2c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "5300a655-a980-4606-924e-a0793dbcb547-7",
+          "image": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/snapshots/8183aada-66c6-4390-aa69-b10862d05a1e/frame-07-at-17.6s.png",
+          "time": 17.6,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794938325346,
+          "contentHash": "17003adc0cd38707a6c939f9d07c2f820f0afd90e06279bd61efee44a00b74ac",
+          "revision": "86a47ffc-1aaa-4bf8-b641-91b3ce2b174e",
+          "inputFingerprint": "d3bd565faa20f41077cec8af243c5092937f5e2f93ade59347351fb44f107b2c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "5300a655-a980-4606-924e-a0793dbcb547-8",
+          "image": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/snapshots/8183aada-66c6-4390-aa69-b10862d05a1e/frame-08-at-19.8s.png",
+          "time": 19.8,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794938325346,
+          "contentHash": "c221310b15f78f631b75d6a46a73480a05a9504b4e1fee5ffd6308326111eb6c",
+          "revision": "86a47ffc-1aaa-4bf8-b641-91b3ce2b174e",
+          "inputFingerprint": "d3bd565faa20f41077cec8af243c5092937f5e2f93ade59347351fb44f107b2c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "5300a655-a980-4606-924e-a0793dbcb547-9",
+          "image": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/snapshots/8183aada-66c6-4390-aa69-b10862d05a1e/frame-09-at-29.75s.png",
+          "time": 29.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794938325346,
+          "contentHash": "e7f4a352925f179fca689da9e17ff713515fd58b0765e337ae9a3723dfc4c494",
+          "revision": "86a47ffc-1aaa-4bf8-b641-91b3ce2b174e",
+          "inputFingerprint": "d3bd565faa20f41077cec8af243c5092937f5e2f93ade59347351fb44f107b2c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ],
+      "14beca11-faa7-4297-9fa9-2750f984c004": [
+        {
+          "scope": "full",
+          "id": "d49da6dc-4930-4b37-8044-45821c6e3fdf-0",
+          "image": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/snapshots/4a689e7d-607f-44d5-88ba-0d69923fa8d6/frame-00-at-2.4s.png",
+          "time": 2.4,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794938369282,
+          "contentHash": "149c4be19e8dc2feb2c2628a188d2a427322f3f11dbe2907305ce5f89c637bc2",
+          "revision": "14beca11-faa7-4297-9fa9-2750f984c004",
+          "inputFingerprint": "2b7fa3726e48a9040737475eb95358d983e6a8dc7498dacb7073ccc7260bebd7",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "d49da6dc-4930-4b37-8044-45821c6e3fdf-1",
+          "image": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/snapshots/4a689e7d-607f-44d5-88ba-0d69923fa8d6/frame-01-at-14.6s.png",
+          "time": 14.6,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794938369283,
+          "contentHash": "efa30246f5e8e92e5105c769480f7ca3ed1e4584f323fb7ec175d09473033e74",
+          "revision": "14beca11-faa7-4297-9fa9-2750f984c004",
+          "inputFingerprint": "2b7fa3726e48a9040737475eb95358d983e6a8dc7498dacb7073ccc7260bebd7",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "d49da6dc-4930-4b37-8044-45821c6e3fdf-2",
+          "image": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/snapshots/4a689e7d-607f-44d5-88ba-0d69923fa8d6/frame-02-at-16.6s.png",
+          "time": 16.6,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794938369283,
+          "contentHash": "de581da783e2d1b63879bb98fd4ef1b73c1b8499721f95b4b090710b1f8f177e",
+          "revision": "14beca11-faa7-4297-9fa9-2750f984c004",
+          "inputFingerprint": "2b7fa3726e48a9040737475eb95358d983e6a8dc7498dacb7073ccc7260bebd7",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "d49da6dc-4930-4b37-8044-45821c6e3fdf-3",
+          "image": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/snapshots/4a689e7d-607f-44d5-88ba-0d69923fa8d6/frame-03-at-29.75s.png",
+          "time": 29.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794938369283,
+          "contentHash": "e7f4a352925f179fca689da9e17ff713515fd58b0765e337ae9a3723dfc4c494",
+          "revision": "14beca11-faa7-4297-9fa9-2750f984c004",
+          "inputFingerprint": "2b7fa3726e48a9040737475eb95358d983e6a8dc7498dacb7073ccc7260bebd7",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ],
+      "f2d25a14-ea2d-428e-add3-51cb73b2ded5": [
+        {
+          "scope": "full",
+          "id": "cf49e4c8-333c-4b3c-857c-0088ac6a1ca1-0",
+          "image": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/snapshots/dca5c78c-2356-4daf-a918-d50170b24a46/frame-00-at-2.4s.png",
+          "time": 2.4,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794938388580,
+          "contentHash": "6be45817705484335224d520359438d75df7a3f0f12e577d0dc6551137d8150e",
+          "revision": "f2d25a14-ea2d-428e-add3-51cb73b2ded5",
+          "inputFingerprint": "81b1df12c370f21980b45ebca16cd9691c7e03a6ce0a02fba2dddbe49a9e95f0",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "cf49e4c8-333c-4b3c-857c-0088ac6a1ca1-1",
+          "image": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/snapshots/dca5c78c-2356-4daf-a918-d50170b24a46/frame-01-at-16.6s.png",
+          "time": 16.6,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794938388580,
+          "contentHash": "43f0c3edcef0fc6cf114c895f1cf200e7c8c677b87b2aeaafcc16f3f82ba6c03",
+          "revision": "f2d25a14-ea2d-428e-add3-51cb73b2ded5",
+          "inputFingerprint": "81b1df12c370f21980b45ebca16cd9691c7e03a6ce0a02fba2dddbe49a9e95f0",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "cf49e4c8-333c-4b3c-857c-0088ac6a1ca1-2",
+          "image": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/snapshots/dca5c78c-2356-4daf-a918-d50170b24a46/frame-02-at-29.75s.png",
+          "time": 29.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794938388580,
+          "contentHash": "e7f4a352925f179fca689da9e17ff713515fd58b0765e337ae9a3723dfc4c494",
+          "revision": "f2d25a14-ea2d-428e-add3-51cb73b2ded5",
+          "inputFingerprint": "81b1df12c370f21980b45ebca16cd9691c7e03a6ce0a02fba2dddbe49a9e95f0",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ],
+      "1eb14a98-8c4f-455e-b4a9-761cff44f800": [
+        {
+          "scope": "full",
+          "id": "385678f7-19dd-4345-952a-05dd9c26c370-0",
+          "image": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/snapshots/f59fc92c-994d-48b1-af2f-f9ec95d5a63b/frame-00-at-2.4s.png",
+          "time": 2.4,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794938405575,
+          "contentHash": "eb4370feabe8f2da83baa7b90dbec1c2970d2966594f1ea667daa9956f971dc5",
+          "revision": "1eb14a98-8c4f-455e-b4a9-761cff44f800",
+          "inputFingerprint": "1f06c12de2ccafb254f9d8b110088a57261f0e7287ce64af00e3da2b2cf49d77",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "385678f7-19dd-4345-952a-05dd9c26c370-1",
+          "image": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/snapshots/f59fc92c-994d-48b1-af2f-f9ec95d5a63b/frame-01-at-16.6s.png",
+          "time": 16.6,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794938405576,
+          "contentHash": "43f0c3edcef0fc6cf114c895f1cf200e7c8c677b87b2aeaafcc16f3f82ba6c03",
+          "revision": "1eb14a98-8c4f-455e-b4a9-761cff44f800",
+          "inputFingerprint": "1f06c12de2ccafb254f9d8b110088a57261f0e7287ce64af00e3da2b2cf49d77",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "385678f7-19dd-4345-952a-05dd9c26c370-2",
+          "image": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/snapshots/f59fc92c-994d-48b1-af2f-f9ec95d5a63b/frame-02-at-29.75s.png",
+          "time": 29.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794938405576,
+          "contentHash": "e7f4a352925f179fca689da9e17ff713515fd58b0765e337ae9a3723dfc4c494",
+          "revision": "1eb14a98-8c4f-455e-b4a9-761cff44f800",
+          "inputFingerprint": "1f06c12de2ccafb254f9d8b110088a57261f0e7287ce64af00e3da2b2cf49d77",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ],
+      "10276827-4027-407c-8171-fca8318f514a": [
+        {
+          "scope": "full",
+          "id": "568e912c-cf18-4dbb-8300-35c4ab419edf-0",
+          "image": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/snapshots/f613df22-91ab-4fec-a091-6731d51152d0/frame-00-at-2.4s.png",
+          "time": 2.4,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794938422599,
+          "contentHash": "a3d070550a12ccb6aeece9766d2329914bc06224cabba5dc3253ac510a98f577",
+          "revision": "10276827-4027-407c-8171-fca8318f514a",
+          "inputFingerprint": "208066310acdfae01e23178689ef74e6e7559b9e1cc37faae69652fa91f2f97b",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "568e912c-cf18-4dbb-8300-35c4ab419edf-1",
+          "image": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/snapshots/f613df22-91ab-4fec-a091-6731d51152d0/frame-01-at-16.6s.png",
+          "time": 16.6,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794938422599,
+          "contentHash": "4e71abaccb321daad02b98ef413b93ca33af8b804555ecf1276badadbd54beb1",
+          "revision": "10276827-4027-407c-8171-fca8318f514a",
+          "inputFingerprint": "208066310acdfae01e23178689ef74e6e7559b9e1cc37faae69652fa91f2f97b",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "568e912c-cf18-4dbb-8300-35c4ab419edf-2",
+          "image": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/snapshots/f613df22-91ab-4fec-a091-6731d51152d0/frame-02-at-29.75s.png",
+          "time": 29.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794938422600,
+          "contentHash": "e7f4a352925f179fca689da9e17ff713515fd58b0765e337ae9a3723dfc4c494",
+          "revision": "10276827-4027-407c-8171-fca8318f514a",
+          "inputFingerprint": "208066310acdfae01e23178689ef74e6e7559b9e1cc37faae69652fa91f2f97b",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ]
+    },
     "unversioned": [
       {
         "scope": "full",

@@ -50,11 +50,11 @@ def word(text):
     out = []
     for ch in text:
         if ch in 'ÍÉÁÓÚ':
-            out.append(f'<span class="acc acute">{"IEAOU"["ÍÉÁÓÚ".index(ch)]}</span>')
+            out.append(f'<span class="acc">{"IEAOU"["ÍÉÁÓÚ".index(ch)]}<span class="mk acute">\'</span></span>')
         elif ch in 'ÃÕ':
-            out.append(f'<span class="acc tilde">{"AO"["ÃÕ".index(ch)]}</span>')
+            out.append(f'<span class="acc">{"AO"["ÃÕ".index(ch)]}<span class="mk tilde">~</span></span>')
         elif ch == 'Ç':
-            out.append('<span class="acc ced">C</span>')
+            out.append('<span class="acc">C<span class="mk ced">,</span></span>')
         elif ch in '0123456789.:,!+-':
             out.append(f'<span class="av">{ch}</span>')
         elif ch == ' ':
@@ -64,7 +64,23 @@ def word(text):
     return ''.join(out)
 
 
-def title(text, size, color, extra_cls=''):
+FM = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'font_metrics.json')))
+
+
+def text_em(text):
+    w = 0.0
+    for ch in text:
+        base = {'Í': 'I', 'É': 'E', 'Á': 'A', 'Ó': 'O', 'Ú': 'U', 'Ã': 'A', 'Õ': 'O', 'Ç': 'C'}.get(ch, ch)
+        if base in FM['Modula']:
+            w += FM['Modula'][base] * 1.01
+        else:
+            w += FM['Avein'].get(base, 0.3) * 0.92
+    return w
+
+
+def title(text, size, color, extra_cls='', maxw=None):
+    maxw = maxw or W * 0.88
+    size = int(min(size, maxw / text_em(text)))
     return f'<div class="t {extra_cls}" style="font-size:{size}px;color:{color}">{word(text)}</div>'
 
 
@@ -124,7 +140,7 @@ tl.append("tl.fromTo('#e-ring',{strokeDashoffset:1},{strokeDashoffset:0,duration
 DET = [(70, 37, 2.6), (55, 52, 2.2), (22, 30, 2.8)]
 for i, (fx, fy, zz) in enumerate(DET):
     t0 = 8.2 + i * 0.3
-    clip(f'e-det{i}', t0, 0.3 if i < 2 else 1.8, photo(f'edet{i}', 'doomsday-stories-3.png', (50, 50)))
+    clip(f'e-det{i}', t0, 0.3 if i < 2 else 1.4, photo(f'edet{i}', 'doomsday-stories-3.png', (50, 50)))
     tl.append(f"tl.fromTo('#edet{i}',{{scale:{zz},transformOrigin:'{fx}% {fy}%'}},{{scale:{zz * 1.05:.3f},duration:0.3,ease:'none'}},{t0});")
 clip('e-frz', 9.1, 0.9, '<div class="frzbox">' + title('MAKE A DEAL', int(BASE * 0.17), C['yellow'], 'frz')
      + title('WITH THE DEVIL', int(BASE * 0.12), C['bone'], 'frz') + '</div>')
@@ -134,12 +150,13 @@ clips.append('<div id="e-flash" class="clip flash" data-start="9.100" data-durat
 tl.append("tl.fromTo('#e-flash',{opacity:0.95},{opacity:0,duration:0.12,ease:'none'},9.1);")
 
 # WHY BUY (14-18): one line per beat, the shirt behind, type snaps into place
-WHY = [('EDIÇÃO LIMITADA.', 'doomsday-stories-1.png', (50, 52)), ('ESTAMPA EXCLUSIVA.', 'doomsday-stories-3.png', (50, 45)),
-       ('SEM REPOSIÇÃO.', 'doomsday-stories-2.png', (50, 40)), ('PEGA A SUA.', 'doomsday-stories-1.png', (50, 52))]
+WHY = [('EDIÇÃO|LIMITADA.', 'doomsday-stories-1.png', (50, 52)), ('ESTAMPA|EXCLUSIVA.', 'doomsday-stories-3.png', (50, 45)),
+       ('SEM|REPOSIÇÃO.', 'doomsday-stories-2.png', (50, 40)), ('PEGA|A SUA.', 'doomsday-stories-1.png', (50, 52))]
 for i, (txt, img, focus) in enumerate(WHY):
     t0 = 14.0 + i
     clip(f'w{i}', t0, 1.0, photo(f'wimg{i}', img, focus) + '<div class="dim"></div>'
-         + f'<div class="whybox">{title(txt, int(BASE * (0.15 if len(txt) < 13 else 0.12)), C["yellow"] if i % 2 == 0 else C["bone"], "why")}</div>')
+         + '<div class="whybox">' + ''.join(title(line, int(BASE * 0.24), C['yellow'] if i % 2 == 0 else C['bone'], 'why')
+                                           for line in txt.split('|')) + '</div>')
     tl.append(f"tl.fromTo('#wimg{i}',{{scale:1.12}},{{scale:1.2,duration:1,ease:'none'}},{t0});")
     tl.append(f"tl.fromTo('#w{i} .why',{{scaleY:2.2,scaleX:0.8}},{{scaleY:1,scaleX:1,duration:0.16,ease:'power4.out'}},{t0});")
     tl.append(f"tl.fromTo('#w{i} .whybox',{{x:0,rotation:0}},{{x:10,rotation:1.2,duration:0.6,ease:'wig'}},{t0 + 0.12});")
@@ -205,10 +222,10 @@ GLASS_JS = r'''
     float noise(vec2 p){ vec2 i=floor(p), f=fract(p); f=f*f*(3.0-2.0*f);
       return mix(mix(hash(i),hash(i+vec2(1,0)),f.x), mix(hash(i+vec2(0,1)),hash(i+vec2(1,1)),f.x), f.y); }
     float logoA(vec2 uv){ vec2 l=(uv-uLogoBox.xy)/uLogoBox.zw; if(l.x<0.0||l.y<0.0||l.x>1.0||l.y>1.0) return 0.0;
-      return texture2D(uLogo, vec2(l.x, 1.0-l.y)).a; }
+      return texture2D(uLogo, l).a; }
     float height(vec2 uv){ // soft height field = blurred logo, the liquid wobbles while it forms
-      float wob=(1.0-uForm)*0.012; uv += wob*vec2(sin(uv.y*38.0+uTime*5.0), cos(uv.x*31.0+uTime*4.0));
-      float h=0.0; float r=0.0035;
+      float wob=(1.0-uForm)*(1.0-uForm)*0.006; uv += wob*vec2(sin(uv.y*38.0+uTime*5.0), cos(uv.x*31.0+uTime*4.0));
+      float h=0.0; float r=0.0016;
       for(int i=-2;i<=2;i++) for(int j=-2;j<=2;j++) h+=logoA(uv+vec2(float(i),float(j))*r);
       return h/25.0; }
     void main(){
@@ -225,8 +242,8 @@ GLASS_JS = r'''
       refr = pow(refr*vec3(1.1,0.9,0.7),vec3(1.1))*1.05 + 0.08;
       vec3 N=normalize(vec3(-n*40.0,1.0));
       float spec=pow(max(dot(N,normalize(vec3(-0.4,0.6,0.7))),0.0),60.0);
-      float rim=clamp(length(n)*55.0,0.0,1.0);
-      vec3 glass = refr + spec*1.6 + rim*vec3(1.0,0.86,0.45)*0.55;
+      float rim=clamp(length(n)*80.0,0.0,1.0);
+      vec3 glass = refr*0.55 + vec3(0.30,0.27,0.22)*h + spec*1.4 + rim*vec3(1.0,0.86,0.45)*0.75;
       vec3 col = mix(bg, glass, grow);
       float g = hash(uv*uRes + fract(uTime*7.0)*91.0);
       col += (g-0.5)*0.10;
@@ -266,16 +283,17 @@ html,body{{width:{W}px;height:{H}px;overflow:hidden;background:{C["black"]}}}
 .t{{font-family:"Modula";line-height:0.95;text-align:center;white-space:nowrap;letter-spacing:0.01em;display:block}}
 .t .av{{font-family:"Avein";font-size:0.92em}}
 .acc{{position:relative;display:inline-block}}
-.acc::after{{position:absolute;left:50%;font-family:"Avein";transform:translateX(-50%);font-size:0.62em;line-height:1}}
-.acute::after{{content:"\\2019";top:-0.42em;transform:translateX(-30%) rotate(-8deg)}}
-.tilde::after{{content:"~";top:-0.40em}}
-.ced::after{{content:",";bottom:-0.32em;font-size:0.55em}}
+.mk{{position:absolute;left:50%;font-family:"Avein";line-height:1;font-size:1.05em}}
+.acute{{top:-0.42em;transform:translateX(-35%) rotate(-12deg)}}
+.tilde{{top:-0.58em;transform:translateX(-50%) scaleX(1.4)}}
+.ced{{bottom:-0.12em;transform:translateX(-50%);font-size:0.9em}}
 .card{{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:{int(BASE * 0.03)}px;padding-bottom:{H - 2 * CY}px}}
 .small{{letter-spacing:0.06em}}
 .hook-title{{position:absolute;left:0;right:0;top:{CY - int(BASE * 0.2)}px}}
 .frzbox,.whybox,.ctabox{{position:absolute;left:0;right:0;top:{CY - int(BASE * 0.15)}px;display:flex;flex-direction:column;align-items:center;gap:{int(BASE * 0.02)}px}}
-.frz{{-webkit-text-stroke:{int(BASE * 0.006)}px {C["black"]};text-shadow:0 {int(BASE * 0.012)}px 0 {C["black"]}}}
-.why{{-webkit-text-stroke:{int(BASE * 0.005)}px {C["black"]};text-shadow:0 {int(BASE * 0.01)}px 0 {C["black"]}}}
+.frzbox,.whybox{{background:{C["black"]};padding:{int(BASE * 0.03)}px 0 {int(BASE * 0.04)}px;box-shadow:0 0 0 {int(BASE * 0.004)}px {C["yellow"]}}}
+.frz{{}}
+.why{{}}
 .dim{{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,8,7,.15),rgba(10,8,7,.55) 45%,rgba(10,8,7,.15))}}
 .flash{{background:#fff3d6;opacity:0}}
 .leak{{background:radial-gradient(ellipse 70% 55% at 85% 20%,rgba(255,150,40,.95),rgba(220,40,10,.55) 45%,rgba(0,0,0,0) 75%);mix-blend-mode:screen;opacity:0}}
@@ -289,7 +307,7 @@ html,body{{width:{W}px;height:{H}px;overflow:hidden;background:{C["black"]}}}
 .band{{position:absolute;overflow:hidden;border:{int(BASE * 0.006)}px solid {C["black"]}}}
 .band img{{width:100%;height:100%;display:block;background:{C["black"]}}}
 .bandlabel{{position:absolute;left:0;right:0;top:{(H // 2 - int(BASE * 0.07)) if V else int(H * 0.82)}px;opacity:0}}
-.bandlabel .t{{-webkit-text-stroke:{int(BASE * 0.005)}px {C["black"]}}}
+.bandlabel .t{{text-shadow:0 0 {int(BASE * 0.03)}px {C["black"]},0 {int(BASE * 0.008)}px 0 {C["black"]}}}
 #glasscv{{position:absolute;left:0;top:0;width:{W}px;height:{H}px}}
 #grain{{mix-blend-mode:overlay;opacity:.45;object-fit:cover}}
 '''
