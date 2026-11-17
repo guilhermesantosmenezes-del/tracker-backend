@@ -262,8 +262,49 @@
     }
   },
   "checks": {
-    "latest": null,
-    "revisions": {},
+    "latest": {
+      "revision": "10276827-4027-407c-8171-fca8318f514a",
+      "id": "447ff061-9e2d-4cbe-a370-d3b5e73bd916"
+    },
+    "revisions": {
+      "10276827-4027-407c-8171-fca8318f514a": [
+        {
+          "id": "447ff061-9e2d-4cbe-a370-d3b5e73bd916",
+          "scope": "project",
+          "report": "/home/user/tracker-backend/paranoia-commercial/film/.hyperframes/artifacts/checks/447ff061-9e2d-4cbe-a370-d3b5e73bd916.json",
+          "metadata": {
+            "ok": false,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 45000,
+              "cache": true,
+              "contrast": true,
+              "craft": true,
+              "strict": false,
+              "snapshots": false,
+              "safeZones": [
+                "tiktok",
+                "reels",
+                "shorts"
+              ],
+              "browserGpuMode": "auto",
+              "includeUnmounted": false
+            }
+          },
+          "createdAt": 1794938725977,
+          "contentHash": "61044a5af270c48e1723820fb23b02d6fc4831514f6487109675736f6bf9ae0a",
+          "revision": "10276827-4027-407c-8171-fca8318f514a",
+          "inputFingerprint": "208066310acdfae01e23178689ef74e6e7559b9e1cc37faae69652fa91f2f97b",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ]
+    },
     "unversioned": []
   },
   "snapshots": {
