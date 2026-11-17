@@ -80,8 +80,12 @@
     shirts: [1.00, 4.30, 8.95, 12.40, 17.25, 21.00],
     bv: [7.60, 15.90],
     finale: 25.30,
-    styleDur: 0.50,   // each BAD VIBES type style
+    styleDur: 0.50,   // each bad vibes type style
   };
+
+  // white-card tracking animation (letter-spacing)
+  const TRACK_FROM = '-0.06em';
+  const TRACK_TO = '0.16em';
 
   /* ---------- DOM ---------- */
   const $ = (s, el = document) => el.querySelector(s);
@@ -294,6 +298,11 @@
     tl.set(logo, { autoAlpha: 0 }, at);
     hide(tl, prevScenes, at);
     $$('.c', el).forEach((c, i) => tl.set(c, { autoAlpha: 1 }, at + i * F));
+    // tracking: the letters open up while/after they are typed
+    tl.fromTo($('.bv-type', el),
+      { letterSpacing: TRACK_FROM },
+      { letterSpacing: TRACK_TO, duration: 1.7, ease: 'power3.out', immediateRender: false },
+      at + 4 * F);
   }
 
   /* Finale, modelled on the reference: the same words swapped through
@@ -333,7 +342,9 @@
     const bvChars = [];
     bv.forEach(el => {
       const h = $('.bv-type', el);
-      fit(h, 1080 - 34 - 20);
+      h.style.letterSpacing = TRACK_TO;        // fit at the widest tracking
+      fit(h, 1080 - 34 - 24);
+      h.style.letterSpacing = TRACK_FROM;
       $$('span', h).forEach(line => {
         line.innerHTML = [...line.textContent].map(ch => '<i class="c">' + ch + '</i>').join('');
       });

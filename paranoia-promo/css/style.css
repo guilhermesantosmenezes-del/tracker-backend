@@ -62,6 +62,7 @@ body { font-family: var(--typewriter); color: #fff; }
   position: absolute; left: 64px; bottom: 120px;
   font: 700 32px/1 var(--typewriter); letter-spacing: 2px;
   color: #fff; background: #000; padding: 12px 18px 10px;
+  text-transform: lowercase;
   transform: rotate(-2deg);
 }
 .piece .label b { font-weight: 400; color: #000; background: #fff; padding: 2px 8px; margin-right: 12px; }
